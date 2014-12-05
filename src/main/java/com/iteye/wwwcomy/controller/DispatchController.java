@@ -3,13 +3,15 @@ package com.iteye.wwwcomy.controller;
 import java.util.Date;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.iteye.wwwcomy.model.User;
 
 @Controller
+@SessionAttributes("loginUser")
 public class DispatchController {
     /**
      * 登录提交页面
@@ -19,12 +21,13 @@ public class DispatchController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(String username, String password, Model model) {
+    public ModelAndView login(String username, String password, ModelAndView view) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
         user.setCreated_date(new Date(System.currentTimeMillis()));
-        model.addAttribute("loginUser", user);
-        return "main";
+        view.addObject("loginUser", user);
+        view.setViewName("redirect:main.jsp");
+        return view;
     }
 }
