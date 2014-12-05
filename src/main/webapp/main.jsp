@@ -25,9 +25,14 @@
 	<div class="container-fluid">
 		<div class="row">
 			<jsp:include page="side_nav.jsp"></jsp:include>
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div id="main" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h1 class="page-header">${loginUser.username}</h1>
 				<h1 class="page-header">${loginUser.password}</h1>
+				<h1>Navbar example</h1>
+		        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+		        <p>
+		          <a class="btn btn-lg btn-primary" href="#" role="button">Write a new one</a>
+		        </p>
 			</div>
 		</div>
 	</div>

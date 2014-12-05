@@ -1,5 +1,7 @@
 package com.iteye.wwwcomy.dao;
 
-public class UserDao {
+import com.iteye.wwwcomy.model.User;
+
+public interface UserDao extends BaseDao<User> {
 
 }

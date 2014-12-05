@@ -20,7 +20,7 @@ public class DispatchController {
      * @param password
      * @return
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "login.do", method = RequestMethod.POST)
     public ModelAndView login(String username, String password, ModelAndView view) {
         User user = new User();
         user.setUsername(username);
