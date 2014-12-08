@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,30 +14,60 @@
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
+<link href="js/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="css/starter-template.css" rel="stylesheet">
 
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script src="js/ie-emulation-modes-warning.js"></script>
 <script src="js/jquery-1.9.1.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/ueditor/ueditor.all.min.js"> </script>
-<script type="text/javascript" charset="utf-8" src="./js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="./js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="./js/ueditor/ueditor.all.min.js">
+	
+</script>
+<script type="text/javascript" charset="utf-8"
+	src="./js/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 
 <body>
-<script type="text/javascript">
-	$(function(){
-		var ue = UE.getEditor('editor');
-		var d=new Date();
-		var day=d.getDate();
-		var month=d.getMonth() + 1;
-		var year=d.getFullYear();
-		$("#currentTime").html(year + "/" + month + "/" + day);
-		$("#diaryTime").html(year + "/" + month + "/" + day);
-	});
-</script>
+	<script type="text/javascript">
+		$(function() {
+			UE.getEditor('editor', {
+				onready : function() {
+					this.on('showmessage', function(type, m) {
+						if (m['content'] == '本地保存成功') {
+							return true;
+						}
+					});
+				}
+			});
+			var ue = UE.getEditor('editor');
+			var currentTime = $("#currentTime").datepicker({
+				beforeShow : function(input) {
+					$(input).css({
+						position : 'relative',
+						zIndex : '1000'
+					});
+				},
+				disabled : true
+			});
+			var d = new Date();
+			var day = d.getDate();
+			var month = d.getMonth() + 1;
+			var year = d.getFullYear();
+			currentTime.datepicker("setDate", day + "/" + month + "/" + year);
+
+			$("#diaryTime").datepicker({
+				beforeShow : function(input) {
+					$(input).css({
+						position : 'relative',
+						zIndex : '1000'
+					});
+				}
+			});
+		});
+	</script>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -62,13 +92,22 @@
 	</nav>
 
 	<div class="container">
-	<div>当前时间:<span id="currentTime"></span></div>
-	<div>日记时间:<span id="diaryTime"></span></div>
-		<script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+		<div>
+			当前时间:<input type="text" id="currentTime" />
+		</div>
+		<div>
+			日记时间:<input type="text" id="diaryTime" />
+		</div>
+		<script id="editor" type="text/plain" style="height: 500px;"></script>
+		<p align="right">
+			<a id="addNew" class="btn btn-lg btn-success" role="button">Save</a>
+		</p>
 	</div>
 
 	<script src="js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.11.2/jquery-ui.js"></script>
 </body>
 </html>
