@@ -1,5 +1,5 @@
 $(function() {
 	$("#addNew").click(function() {
-		alert(123);
+		window.location.href="main_edit.jsp";
 	});
 });

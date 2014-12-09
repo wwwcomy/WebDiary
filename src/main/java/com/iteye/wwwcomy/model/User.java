@@ -17,7 +17,8 @@ import javax.persistence.Table;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userid; // 用户ID
+    private String userid; // 用户ID
+
     private String username; // 用户名
     private String password; // 用户密码
     private String email; // 电子邮箱
@@ -27,11 +28,11 @@ public class User {
     private int deleted;// 是否已经删除
     private Date created_date;
 
-    public int getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 

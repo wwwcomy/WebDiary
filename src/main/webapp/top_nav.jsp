@@ -17,7 +17,7 @@
 					<li><a href="#">${loginUser.username}</a></li>
 					<li><a href="#">设置</a></li>
 					<li><a href="#">帮助</a></li>
-					<li><a href="#">注销</a></li>
+					<li><a href="login.jsp">注销</a></li>
 				</ul>
 				<form class="navbar-form navbar-right">
 					<input type="text" class="form-control" placeholder="搜索...">
