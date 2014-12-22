@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +23,7 @@ public class DiaryController {
     private DiaryServiceImpl diaryService;
 
     @ResponseBody
-    @RequestMapping(value = "saveDiary.do", method = RequestMethod.POST)
+    @RequestMapping(value = "saveDiary.do")
     public Object saveDiary(Date date, Date lastUpdateDate, String content, HttpSession session, ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
         diaryService.createDiary(date, lastUpdateDate, content, user);
