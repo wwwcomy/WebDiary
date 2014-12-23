@@ -15,9 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String userid; // 用户ID
+    private int userid; // 用户ID
 
     private String username; // 用户名
     private String password; // 用户密码
@@ -28,11 +26,13 @@ public class User {
     private int deleted;// 是否已经删除
     private Date created_date;
 
-    public String getUserid() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 

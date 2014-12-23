@@ -17,6 +17,7 @@
 
 <script src="js/ie-emulation-modes-warning.js"></script>
 <script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery.json-2.4.js"></script>
 <script type="text/javascript" charset="utf-8"
 	src="js/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8"

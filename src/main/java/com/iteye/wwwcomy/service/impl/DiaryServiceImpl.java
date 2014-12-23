@@ -2,7 +2,8 @@ package com.iteye.wwwcomy.service.impl;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +13,7 @@ import com.iteye.wwwcomy.model.User;
 
 @Service
 public class DiaryServiceImpl {
-    @Autowired
+    @Resource
     private DiaryDao diaryDao;
 
     @Transactional

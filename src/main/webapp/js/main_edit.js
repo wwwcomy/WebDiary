@@ -33,14 +33,15 @@ $(function() {
 		}
 	});
 	$("#save").click(function() {
+		var req = {
+				"date":$("#diaryTime").val(),
+				"lastUpdateDate":$("#currentTime").val(),
+				"content":UE.getEditor("editor").getContent()
+			};
 		$.ajax({
 			url : "saveDiary.do",
 			type : "POST",
-			data : {
-				date : $("#diaryTime").val(),
-				lastUpdateDate : $("#currentTime").val(),
-				content : UE.getEditor("editor").getContent()
-			},
+			data : req,
 			success : function(result) {
 				if (eval(result)) {
 					alert('保存成功');

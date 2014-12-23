@@ -6,27 +6,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "diary")
 public class Diary {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+
+    private int id;
     private User user;
     private Date date;
     private Date lastUpdateDate;
     private String content;
 
-    public String getId() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
+//    @ManyToOne
+//    @JoinColumn(name="userId")
+    @Transient
     public User getUser() {
         return user;
     }
