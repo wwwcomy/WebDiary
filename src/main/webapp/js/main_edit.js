@@ -34,14 +34,15 @@ $(function() {
 	});
 	$("#save").click(function() {
 		var req = {
-				"date":$("#diaryTime").val(),
-				"lastUpdateDate":$("#currentTime").val(),
-				"content":UE.getEditor("editor").getContent()
-			};
+				date:'1'+$("#diaryTime").val(),
+				lastUpdateDate:'1'+$("#currentTime").val(),
+				content : UE.getEditor("editor").getContent()
+		};
 		$.ajax({
 			url : "saveDiary.do",
 			type : "POST",
 			data : req,
+			contentType : "application/json;",
 			success : function(result) {
 				if (eval(result)) {
 					alert('保存成功');

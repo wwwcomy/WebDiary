@@ -36,13 +36,14 @@ public class DiaryController {
 
     @ResponseBody
     @RequestMapping(value = "saveDiary.do")
-    public Object saveDiaryForAjax(@RequestBody String json, HttpSession session, ModelAndView view) {
+//    public Object saveDiaryForAjax(@RequestBody String json, HttpSession session, ModelAndView view) {
+    public Object saveDiaryForAjax(@RequestBody Map json, HttpSession session, ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
-        JSONObject jsonObj = JSONObject.parseObject(json);
-        Date date = jsonObj.getDate("date");
-        Date lastUpdateDate = jsonObj.getDate("lastUpdateDate");
-        String content = jsonObj.getString("content");
-        diaryService.createDiary(date, lastUpdateDate, content, user);
+//        JSONObject jsonObj = JSONObject.parseObject(json);
+//        Date date = jsonObj.getDate("date");
+//        Date lastUpdateDate = jsonObj.getDate("lastUpdateDate");
+//        String content = jsonObj.getString("content");
+//        diaryService.createDiary(date, lastUpdateDate, content, user);
         Map<String, String> map = new HashMap<String, String>();
         map.put("success", "true");
         return map;
