@@ -32,7 +32,7 @@
 					Remember me
 				</label>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
 		</form>
 
 	</div>

@@ -10,6 +10,7 @@ $(function() {
 	});
 	var ue = UE.getEditor('editor');
 	var currentTime = $("#currentTime").datepicker({
+		dateFormat : 'yy-mm-dd',
 		beforeShow : function(input) {
 			$(input).css({
 				position : 'relative',
@@ -19,12 +20,10 @@ $(function() {
 		disabled : true
 	});
 	var d = new Date();
-	var day = d.getDate();
-	var month = d.getMonth() + 1;
-	var year = d.getFullYear();
-	currentTime.datepicker("setDate", day + "/" + month + "/" + year);
+	currentTime.datepicker("setDate", d);
 
 	$("#diaryTime").datepicker({
+		dateFormat : 'yy-mm-dd',
 		beforeShow : function(input) {
 			$(input).css({
 				position : 'relative',
@@ -34,20 +33,22 @@ $(function() {
 	});
 	$("#save").click(function() {
 		var req = {
-				date:'1'+$("#diaryTime").val(),
-				lastUpdateDate:'1'+$("#currentTime").val(),
-				content : UE.getEditor("editor").getContent()
+			"date" : $("#diaryTime").val(),
+			"lastUpdateDate" : $("#currentTime").val(),
+			"content" : UE.getEditor("editor").getContent()
 		};
+
+		// req = "{\"first\":\"A\",\"second\":\"B\"}";
 		$.ajax({
 			url : "saveDiary.do",
 			type : "POST",
-			data : req,
+			data : JSON.stringify(req),
 			contentType : "application/json;",
 			success : function(result) {
 				if (eval(result)) {
 					alert('保存成功');
 				} else {
-					alert('登录异常，请联系管理员');
+					alert('异常，请联系管理员');
 				}
 			}
 		});
