@@ -13,17 +13,17 @@
 <title>Web Diary</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/dashboard.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/dashboard.css" rel="stylesheet">
+<link href="js/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet">
 <script src="js/ie-emulation-modes-warning.js"></script>
-
 </head>
-
 <body>
 
-	<jsp:include page="top_nav.jsp"></jsp:include>
-
+	<jsp:include page="include/top_nav.jsp"></jsp:include>
 	<div class="container-fluid">
 		<div class="row">
-			<jsp:include page="side_nav.jsp"></jsp:include>
+			<jsp:include page="include/side_nav.jsp"></jsp:include>
 			<div id="main" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<!-- <h1 class="page-header">${loginUser.username}</h1>
 				<h1 class="page-header">${loginUser.password}</h1>  -->
@@ -41,5 +41,7 @@
 	<script src="js/docs.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/jquery-ui-1.11.2/jquery-ui.js"></script>
+	<script src="js/ajax_load.js"></script>
 </body>
 </html>

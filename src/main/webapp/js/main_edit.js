@@ -1,4 +1,4 @@
-$(function() {
+void function($) {
 	UE.getEditor('editor', {
 		onready : function() {
 			this.on('showmessage', function(type, m) {
@@ -53,4 +53,4 @@ $(function() {
 			}
 		});
 	});
-});
+}(window.jQuery);

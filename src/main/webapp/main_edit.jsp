@@ -27,11 +27,11 @@
 </head>
 
 <body>
-	<jsp:include page="top_nav.jsp"></jsp:include>
+	<jsp:include page="include/top_nav.jsp"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row">
-			<jsp:include page="side_nav.jsp"></jsp:include>
+			<jsp:include page="include/side_nav.jsp"></jsp:include>
 			<div id="main"
 				class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div>
