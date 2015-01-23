@@ -4,27 +4,25 @@ void function(_) {
 	$center = _('#mid_center'), $new = _("#mid_center .news .span6"), 
 	wsWidth = 1024, wsHeight = 768;
 	
-	var onWorkspaceContentLoad = function(){
-        var $h1 = $workspace.find('h1'),
-            extPanelId = $workspace.find('.x-panel:first').attr('id');
-        if (extPanelId && $h1.onlyOne()) {
-            Ext.getCmp(extPanelId).setHeight(wsHeight - 6 - $h1.outerHeight(true));
-        }
-//        _.triggerOfDefaultElementIn($workspace)();
-    };
-
-    
-	var loadWorkspaceContentByLink = function(/*jQuery.Event*/evt){
-        $workspace.load(_(this).attr('href'), onWorkspaceContentLoad);
-
-
-        return evt.preventDefault() && false;
-    };
-
-    // 向 workspace 容器 ajax加载内容的链接
-    _('.sidebar').delegate(_('.ws-load[href]'),'click', function(evt){
-    	loadWorkspaceContentByLink.call(_(evt.target),evt);
-    });
+    _('.ws-load[href]').loadingbar({
+		  target: "#loadingbar-frame",
+		  replaceURL: false,
+		  direction: "right",
+		 
+		  /* Default Ajax Parameters.  */
+		  async: true, 
+		  complete: function(xhr, text) {},
+		  cache: true,
+		  error: function(xhr, text, e) {},
+		  global: true,
+		  headers: {},
+		  statusCode: {},
+		  success: function(data, text, xhr) {
+			  $workspace.html(data);
+		  },
+		  dataType: "html",
+		  done: function(data) {}
+		});
 
     // 向指定容器 ajax加载内容的链接
 //    _('.ajax-load[href]').live('click', function(/*jQuery.Event*/evt){

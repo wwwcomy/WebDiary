@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div class="col-sm-3 col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
-		<li class="active"><a href="main.jsp" class="ws-load">MainPage <span class="sr-only">(current)</span></a></li>
+		<li class="active"><a href="main.jsp">MainPage <span class="sr-only">(current)</span></a></li>
 		<li><a href="edit_part.jsp" class="ws-load">AjaxLoad</a></li>
 	</ul>
 	<ul class="nav nav-sidebar">

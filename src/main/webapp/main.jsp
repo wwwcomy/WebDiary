@@ -11,15 +11,16 @@
 <meta name="author" content="">
 
 <title>Web Diary</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/dashboard.css" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/dashboard.css" rel="stylesheet">
-<link href="js/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/dashboard.css" rel="stylesheet" />
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/dashboard.css" rel="stylesheet" />
+<link href="css/loadingbar.css" rel="stylesheet" />
+<link href="js/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
 <script src="js/ie-emulation-modes-warning.js"></script>
 </head>
 <body>
-
+<div id="loadingbar-frame"></div>
 	<jsp:include page="include/top_nav.jsp"></jsp:include>
 	<div class="container-fluid">
 		<div class="row">
@@ -37,6 +38,8 @@
 	</div>
 
 	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery.loadingbar.js"></script>
+	
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/docs.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
