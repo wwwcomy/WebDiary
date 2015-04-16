@@ -2,10 +2,20 @@ package com.iteye.wwwcomy.model.dto;
 
 import java.util.Date;
 
-public class DiaryDTO2 {
+import org.springframework.format.annotation.DateTimeFormat;
 
+/**
+ * Used to save request diary
+ * 
+ * @author xingnan.liu
+ * @version $Revision$
+ */
+public class DiaryDTOForRequest {
+    // Should use this tag: "mvc:annotation-driven"
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
-    private String lastUpdateDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date lastUpdateDate;
     private String content;
 
     public Date getDate() {
@@ -16,11 +26,11 @@ public class DiaryDTO2 {
         this.date = date;
     }
 
-    public String getLastUpdateDate() {
+    public Date getLastUpdateDate() {
         return lastUpdateDate;
     }
 
-    public void setLastUpdateDate(String lastUpdateDate) {
+    public void setLastUpdateDate(Date lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
     }
 

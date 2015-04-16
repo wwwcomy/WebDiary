@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iteye.wwwcomy.model.User;
-import com.iteye.wwwcomy.model.dto.DiaryDTO2;
+import com.iteye.wwwcomy.model.dto.DiaryDTOForRequest;
 import com.iteye.wwwcomy.service.impl.DiaryServiceImpl;
 
 @Controller
@@ -35,17 +35,10 @@ public class DiaryController {
 
     @ResponseBody
     @RequestMapping(value = "saveDiary.do")
-    //@RequestParam("first") String first, 
-    //@RequestParam("second") String second
-    // public Object saveDiaryForAjax(@RequestBody String json, HttpSession session, ModelAndView view) {
-    public Object saveDiaryForAjax(@RequestBody DiaryDTO2 dto, String content, HttpSession session,
+    public Object saveDiaryForAjax(@RequestBody DiaryDTOForRequest dto, String content, HttpSession session,
             ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
-        // JSONObject jsonObj = JSONObject.parseObject(json);
-        // Date date = jsonObj.getDate("date");
-        // Date lastUpdateDate = jsonObj.getDate("lastUpdateDate");
-        // String content = jsonObj.getString("content");
-        // diaryService.createDiary(date, lastUpdateDate, content, user);
+        diaryService.createDiary(dto, user);
         Map<String, String> map = new HashMap<String, String>();
         map.put("success", "true");
         return map;
