@@ -1,0 +1,1 @@
+insert into user (password,username,deleted,status) values ('1','1@1.com',0,0)

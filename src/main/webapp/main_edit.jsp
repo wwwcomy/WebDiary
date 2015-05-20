@@ -13,17 +13,16 @@
 <title>Web Diary</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/dashboard.css" rel="stylesheet">
+<link href="css/loadingbar.css" rel="stylesheet" />
 <link href="js/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet">
 
 <script src="js/ie-emulation-modes-warning.js"></script>
 <script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery.loadingbar.js"></script>
 <script src="js/jquery.json-2.4.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="js/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="js/ueditor/ueditor.all.min.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 
 <body>
@@ -53,5 +52,6 @@
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 	<script src="js/jquery-ui-1.11.2/jquery-ui.js"></script>
 	<script src="js/main_edit.js"></script>
+	<script src="js/ajax_load.js"></script>
 </body>
 </html>
