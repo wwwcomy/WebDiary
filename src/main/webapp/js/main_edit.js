@@ -40,7 +40,7 @@ void function($) {
 
 		// req = "{\"first\":\"A\",\"second\":\"B\"}";
 		$.ajax({
-			url : "saveDiary.do",
+			url : "diary/saveDiary.do",
 			type : "POST",
 			data : JSON.stringify(req),
 			contentType : "application/json;",

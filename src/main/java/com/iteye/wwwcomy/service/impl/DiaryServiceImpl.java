@@ -14,35 +14,40 @@ import com.iteye.wwwcomy.model.dto.DiaryDTOForRequest;
 
 @Service
 public class DiaryServiceImpl {
-    @Resource
-    private DiaryDao diaryDao;
+	@Resource
+	private DiaryDao diaryDao;
 
-    @Transactional
-    public void createDiary(Date date, Date lastUpdateDate, String content, User user) {
-        Diary diary = new Diary();
-        diary.setContent(content);
-        diary.setUser(user);
-        diary.setDate(date);
-        diary.setLastUpdateDate(lastUpdateDate);
-        diaryDao.save(diary);
-    }
+	@Transactional
+	public void createDiary(Date date, Date lastUpdateDate, String content,
+			User user) {
+		Diary diary = new Diary();
+		diary.setContent(content);
+		diary.setUser(user);
+		diary.setDate(date);
+		diary.setLastUpdateDate(lastUpdateDate);
+		diaryDao.save(diary);
+	}
 
-    @Transactional
-    public void createDiary(DiaryDTOForRequest dto, User user) {
-        Diary diary = new Diary();
-        diary.setContent(dto.getContent());
-        diary.setUser(user);
-        diary.setDate(dto.getDate());
-        diary.setLastUpdateDate(dto.getLastUpdateDate());
-        diaryDao.save(diary);
-    }
+	@Transactional
+	public void createDiary(DiaryDTOForRequest dto, User user) {
+		Diary diary = new Diary();
+		diary.setContent(dto.getContent());
+		diary.setUser(user);
+		diary.setDate(dto.getDate());
+		diary.setLastUpdateDate(dto.getLastUpdateDate());
+		diaryDao.save(diary);
+	}
 
-    public DiaryDao getDiaryDao() {
-        return diaryDao;
-    }
+	public Diary getDiary(User user, Date date) {
+		return diaryDao.getByDate(user, date);
+	}
 
-    public void setDiaryDao(DiaryDao diaryDao) {
-        this.diaryDao = diaryDao;
-    }
+	public DiaryDao getDiaryDao() {
+		return diaryDao;
+	}
+
+	public void setDiaryDao(DiaryDao diaryDao) {
+		this.diaryDao = diaryDao;
+	}
 
 }
