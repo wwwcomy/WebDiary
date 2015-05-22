@@ -18,8 +18,8 @@ public class DiaryDTOForRequest {
     private Date lastUpdateDate;
     private String content;
 
-    public Date getDate() {
-        return date;
+    public java.sql.Date getDate() {
+        return new java.sql.Date(date.getTime());
     }
 
     public void setDate(Date date) {

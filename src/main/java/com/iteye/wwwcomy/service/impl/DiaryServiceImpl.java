@@ -18,7 +18,7 @@ public class DiaryServiceImpl {
 	private DiaryDao diaryDao;
 
 	@Transactional
-	public void createDiary(Date date, Date lastUpdateDate, String content,
+	public void createDiary(java.sql.Date date, Date lastUpdateDate, String content,
 			User user) {
 		Diary diary = new Diary();
 		diary.setContent(content);
