@@ -1,7 +1,7 @@
 /*
  * Created on 2004-10-11
  */
-package com.iteye.wwwcomy.lxn.utils;
+package com.iteye.wwwcomy.utils;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package com.iteye.wwwcomy.lxn.utils;
+package com.iteye.wwwcomy.utils;
 
 import java.util.Collection;
 import java.util.List;

@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import com.iteye.wwwcomy.dao.UserDao;
-import com.iteye.wwwcomy.lxn.utils.StringUtil;
 import com.iteye.wwwcomy.model.User;
+import com.iteye.wwwcomy.utils.StringUtil;
 
 @Repository
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {

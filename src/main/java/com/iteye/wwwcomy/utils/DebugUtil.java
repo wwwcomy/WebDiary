@@ -1,4 +1,4 @@
-package com.iteye.wwwcomy.lxn.utils;
+package com.iteye.wwwcomy.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
