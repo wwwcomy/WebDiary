@@ -31,7 +31,7 @@
 				<h1>Navbar example</h1>
 		        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
 		        <p align="center">
-		          <a id="addNew" class="btn btn-lg btn-primary" role="button">Write a new one</a>
+		          <a id="addNew" class="btn btn-lg btn-primary ws-load" role="button" href="edit_part.jsp">Write a new one</a>
 		        </p>
 			</div>
 		</div>

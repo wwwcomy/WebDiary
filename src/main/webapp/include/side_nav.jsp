@@ -6,7 +6,7 @@
 		<li><a href="edit_part.jsp" class="ws-load">AjaxLoad</a></li>
 	</ul>
 	<ul class="nav nav-sidebar">
-		<li><a href="#" class="ws-load">Diary List</a></li>
+		<li><a href="tree_part.jsp" class="ws-load">Diary List</a></li>
 		<li><a href="#" class="ws-load">Nav item again</a></li>
 	</ul>
 	<ul class="nav nav-sidebar">

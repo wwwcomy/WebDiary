@@ -4,25 +4,27 @@ void function(_) {
 	$center = _('#mid_center'), $new = _("#mid_center .news .span6"), 
 	wsWidth = 1024, wsHeight = 768;
 	
-    _('.ws-load[href]').loadingbar({
-		  target: "#loadingbar-frame",
-		  replaceURL: false,
-		  direction: "right",
-		 
-		  /* Default Ajax Parameters.  */
-		  async: true, 
-		  complete: function(xhr, text) {},
-		  cache: true,
-		  error: function(xhr, text, e) {},
-		  global: true,
-		  headers: {},
-		  statusCode: {},
-		  success: function(data, text, xhr) {
-			  $workspace.html(data);
-		  },
-		  dataType: "html",
-		  done: function(data) {}
-		});
+    _('.ws-load').each(function(){
+    	$(this).loadingbar({
+  		  target: "#loadingbar-frame",
+  		  replaceURL: false,
+  		  direction: "right",
+  		 
+  		  /* Default Ajax Parameters.  */
+  		  async: true, 
+  		  complete: function(xhr, text) {},
+  		  cache: true,
+  		  error: function(xhr, text, e) {},
+  		  global: true,
+  		  headers: {},
+  		  statusCode: {},
+  		  success: function(data, text, xhr) {
+  			  $workspace.html(data);
+  		  },
+  		  dataType: "html",
+  		  done: function(data) {}
+  		});
+    });
 
     // 向指定容器 ajax加载内容的链接
 //    _('.ajax-load[href]').live('click', function(/*jQuery.Event*/evt){
