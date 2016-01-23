@@ -11,35 +11,35 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @version $Revision$
  */
 public class DiaryDTOForRequest {
-    // Should use this tag: "mvc:annotation-driven"
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date lastUpdateDate;
-    private String content;
+	// Should use this tag: "mvc:annotation-driven"
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date date;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date lastUpdateDate;
+	private String content;
 
-    public java.sql.Date getDate() {
-        return new java.sql.Date(date.getTime());
-    }
+	public Date getDate() {
+		return new Date(date.getTime());
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
+	public Date getLastUpdateDate() {
+		return lastUpdateDate;
+	}
 
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
-    }
+	public void setLastUpdateDate(Date lastUpdateDate) {
+		this.lastUpdateDate = lastUpdateDate;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
 }

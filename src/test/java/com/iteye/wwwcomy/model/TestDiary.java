@@ -23,7 +23,7 @@ public class TestDiary {
 	public void createDiary() {
 		Diary d = new Diary();
 		d.setContent("Content");
-		d.setDate(new java.sql.Date(System.currentTimeMillis()));
+		d.setDate(new Date());
 		d.setLastUpdateDate(new Date());
 		d.setUser(new User());
 		System.out.println(diaryDao.save(d));

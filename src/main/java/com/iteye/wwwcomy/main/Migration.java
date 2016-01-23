@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -17,8 +19,13 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.io.IOUtils;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.iteye.wwwcomy.model.Diary;
+import com.iteye.wwwcomy.model.User;
 
 /**
  * 用于将原本存于Access中的数据导入到MySQL中
@@ -30,37 +37,60 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Migration {
 	public static void main(String[] args) throws Exception {
-		new Migration().gernateConfig();
+		new Migration().migrate2Mysql();
+	}
+
+	@SuppressWarnings("resource")
+	private void migrate2Mysql() throws Exception {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		DataRoot root = gernateDiaries("c:/temp/book.xml");
+		SessionFactory sessionFactory = (SessionFactory) ac.getBean("sessionFactory");
+		Session session = sessionFactory.openSession();
+		User user = new User();
+		user.setUsername("admin");
+		user.setPassword("123");
+		session.save(user);
+		for (DiaryBean diary : root.getDiaries()) {
+			String memo = diary.getMemo();
+			String content = getNormalTextFromRtf(IOUtils.toInputStream(memo, Charset.forName("ISO8859_1")));
+			Diary d = new Diary();
+			d.setUser(user);
+			d.setContent(content);
+			d.setDate(diary.getDate());
+			d.setLastUpdateDate(new Date());
+			session.save(d);
+		}
 	}
 
 	/**
-	 * TODO 完成写到数据库中!!
+	 * 根据MDB导出的XML生成Diary的实体
 	 * 
 	 * @throws Exception
 	 */
-	public void gernateConfig() throws Exception {
+	private DataRoot gernateDiaries(String mdbExportedXml) throws Exception {
 		JAXBContext context;
 		DataRoot root = null;
 		try {
 			context = JAXBContext.newInstance(DataRoot.class);
 			Unmarshaller shaller = context.createUnmarshaller();
-			root = (DataRoot) shaller.unmarshal(new File("c:/temp/book.xml"));
+			root = (DataRoot) shaller.unmarshal(new File(mdbExportedXml));
 			System.out.println(root);
 			System.out.println(root.getDiaries().size());
 		} catch (JAXBException e) {
-			e.printStackTrace();
+			throw e;
 		}
-		String memo = root.getDiaries().get(3).getMemo();
-		System.out.println(memo);
-		String result = getText(IOUtils.toInputStream(memo, Charset.forName("ISO8859_1")));
-		System.out.println(new String(result.getBytes(Charset.forName("ISO8859_1")), "GB2312"));
+		if (root.getDiaries() == null) {
+			root.setDiaries(new ArrayList<DiaryBean>());
+		}
+		return root;
 	}
 
-	public String getText(InputStream in) throws Exception {
+	private String getNormalTextFromRtf(InputStream in) throws Exception {
 		RTFEditorKit kit = new RTFEditorKit();
 		Document doc = kit.createDefaultDocument();
 		kit.read(in, doc, 0);
-		return doc.getText(0, doc.getLength());
+		String tmp = doc.getText(0, doc.getLength());
+		return new String(tmp.getBytes(Charset.forName("ISO8859_1")), "GB2312");
 	}
 
 	/**

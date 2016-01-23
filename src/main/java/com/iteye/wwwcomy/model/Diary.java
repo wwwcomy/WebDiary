@@ -1,7 +1,8 @@
 package com.iteye.wwwcomy.model;
 
-import java.sql.Date;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,7 @@ public class Diary {
 	private int id;
 	private User user;
 	private Date date;
-	private java.util.Date lastUpdateDate;
+	private Date lastUpdateDate;
 	private String content;
 
 	@Id
@@ -45,10 +46,11 @@ public class Diary {
 		return date;
 	}
 
-	public void setDate(java.sql.Date date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
+	@Column(length = 16777215)
 	public String getContent() {
 		return content;
 	}
@@ -57,11 +59,11 @@ public class Diary {
 		this.content = content;
 	}
 
-	public java.util.Date getLastUpdateDate() {
+	public Date getLastUpdateDate() {
 		return lastUpdateDate;
 	}
 
-	public void setLastUpdateDate(java.util.Date lastUpdateDate) {
+	public void setLastUpdateDate(Date lastUpdateDate) {
 		this.lastUpdateDate = lastUpdateDate;
 	}
 
