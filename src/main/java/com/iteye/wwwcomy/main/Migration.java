@@ -58,6 +58,8 @@ public class Migration {
 			d.setContent(content);
 			d.setDate(diary.getDate());
 			d.setLastUpdateDate(new Date());
+			d.setTitle(diary.getTitle());
+			d.setWeather(diary.getIcotext());
 			session.save(d);
 		}
 	}

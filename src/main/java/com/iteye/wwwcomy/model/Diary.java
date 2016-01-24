@@ -18,7 +18,15 @@ public class Diary {
 	private int id;
 	private User user;
 	private Date date;
+	/**
+	 * 上次更新日期
+	 */
 	private Date lastUpdateDate;
+	/**
+	 * 天气
+	 */
+	private String weather;
+	private String title;
 	private String content;
 
 	@Id
@@ -65,6 +73,22 @@ public class Diary {
 
 	public void setLastUpdateDate(Date lastUpdateDate) {
 		this.lastUpdateDate = lastUpdateDate;
+	}
+
+	public String getWeather() {
+		return weather;
+	}
+
+	public void setWeather(String weather) {
+		this.weather = weather;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	@Override
