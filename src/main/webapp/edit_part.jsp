@@ -11,10 +11,19 @@
 <script type="text/javascript" charset="utf-8"
 	src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
 <div>
-	当前时间:<input type="text" id="currentTime" />
+	<label for="currentTime" class="">当前时间:</label><input type="text"
+		id="currentTime" name="currentTime" />
 </div>
 <div>
-	日记时间:<input type="text" id="diaryTime" />
+	<label for="diaryTime" class="">日记时间:</label><input type="text"
+		id="diaryTime" name="diaryTime" />
+</div>
+<div>
+	<label for="weather" class="">天气</label> <input id="weather"
+		name="weather" />
+</div>
+<div>
+	<label for="title" class="">标题</label> <input id="title" name="title" />
 </div>
 <script id="editor" type="text/plain" style="height: 500px;"></script>
 <p align="right">

@@ -1,3 +1,4 @@
+//@ sourceURL=main_edit.js
 void function($) {
 	UE.getEditor('editor', {
 		onready : function() {
@@ -34,11 +35,10 @@ void function($) {
 	$("#save").click(function() {
 		var req = {
 			"date" : $("#diaryTime").val(),
-			"lastUpdateDate" : $("#currentTime").val(),
+			"weather" : $("#weather").val(),
+			"title" : $("#title").val(),
 			"content" : UE.getEditor("editor").getContent()
 		};
-
-		// req = "{\"first\":\"A\",\"second\":\"B\"}";
 		$.ajax({
 			url : "diary/saveDiary.do",
 			type : "POST",
@@ -50,6 +50,9 @@ void function($) {
 				} else {
 					alert('异常，请联系管理员');
 				}
+			},
+			error : function() {
+				alert('保存失败,请联系管理员error');
 			}
 		});
 	});

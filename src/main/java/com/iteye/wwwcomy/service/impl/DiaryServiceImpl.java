@@ -18,8 +18,7 @@ public class DiaryServiceImpl {
 	private DiaryDao diaryDao;
 
 	@Transactional
-	public void createDiary(java.sql.Date date, Date lastUpdateDate, String content,
-			User user) {
+	public void createDiary(Date date, Date lastUpdateDate, String content, User user) {
 		Diary diary = new Diary();
 		diary.setContent(content);
 		diary.setUser(user);
@@ -34,7 +33,9 @@ public class DiaryServiceImpl {
 		diary.setContent(dto.getContent());
 		diary.setUser(user);
 		diary.setDate(dto.getDate());
-		diary.setLastUpdateDate(dto.getLastUpdateDate());
+		diary.setLastUpdateDate(new Date());
+		diary.setTitle(dto.getTitle());
+		diary.setWeather(dto.getWeather());
 		diaryDao.save(diary);
 	}
 

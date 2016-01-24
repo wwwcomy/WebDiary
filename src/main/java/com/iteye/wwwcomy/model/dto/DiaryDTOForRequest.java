@@ -8,15 +8,14 @@ import org.springframework.format.annotation.DateTimeFormat;
  * Used to save request diary
  * 
  * @author xingnan.liu
- * @version $Revision$
  */
 public class DiaryDTOForRequest {
 	// Should use this tag: "mvc:annotation-driven"
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date lastUpdateDate;
 	private String content;
+	private String weather;
+	private String title;
 
 	public Date getDate() {
 		return new Date(date.getTime());
@@ -24,14 +23,6 @@ public class DiaryDTOForRequest {
 
 	public void setDate(Date date) {
 		this.date = date;
-	}
-
-	public Date getLastUpdateDate() {
-		return lastUpdateDate;
-	}
-
-	public void setLastUpdateDate(Date lastUpdateDate) {
-		this.lastUpdateDate = lastUpdateDate;
 	}
 
 	public String getContent() {
@@ -42,4 +33,19 @@ public class DiaryDTOForRequest {
 		this.content = content;
 	}
 
+	public String getWeather() {
+		return weather;
+	}
+
+	public void setWeather(String weather) {
+		this.weather = weather;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 }
