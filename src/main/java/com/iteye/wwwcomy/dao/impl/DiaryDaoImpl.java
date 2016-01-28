@@ -15,7 +15,7 @@ public class DiaryDaoImpl extends BaseDaoImpl<Diary> implements DiaryDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Diary getByDate(User user, Date date) {
-		List<Diary> list = getSession()
+		List<Diary> list = getCurrentSession()
 				.createQuery(
 						"FROM " + getClazz().getSimpleName()
 								+ " WHERE userId=(:userId) and date=(:date)")

@@ -40,7 +40,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
     <!-- 4 spring security -->  
     <!-- <listener>  

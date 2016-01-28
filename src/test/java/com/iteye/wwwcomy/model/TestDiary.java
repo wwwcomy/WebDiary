@@ -49,7 +49,7 @@ public class TestDiary {
         d.setDate(new Date());
         d.setLastUpdateDate(new Date());
         d.setUser(new User());
-        d.setId(123);
+        d.setId("123");
         d.setTitle("title");
         d.setWeather("weather");
         JsonGenerator jsonGenerator = null;

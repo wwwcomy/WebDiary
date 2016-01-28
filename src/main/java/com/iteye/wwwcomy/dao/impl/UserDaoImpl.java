@@ -21,7 +21,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
         if (StringUtil.isBlankOrNull(userName)) {
             return null;
         } else {
-            Query q = this.getSession().createQuery("select t from User t where t.username=:userName");
+            Query q = this.getCurrentSession().createQuery("select t from User t where t.username=:userName");
             q.setString("userName", userName);
             q.setLockMode("t", LockMode.NONE);
             q.setFirstResult(0);
@@ -43,7 +43,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
         if (StringUtil.isBlankOrNull(userName) || StringUtil.isBlankOrNull(password)) {
             return null;
         } else {
-            Query q = this.getSession().createQuery(
+            Query q = this.getCurrentSession().createQuery(
                     "select t from User t where t.username=:userName and password=:password");
             q.setString("userName", userName);
             q.setString("password", password);

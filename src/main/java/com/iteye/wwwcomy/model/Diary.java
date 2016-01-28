@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Diary {
 
-    private int id;
+    private String id;
     private User user;
     private Date date;
     /**
@@ -34,11 +34,11 @@ public class Diary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

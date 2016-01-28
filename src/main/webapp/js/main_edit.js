@@ -40,8 +40,8 @@ void function($) {
 			"content" : UE.getEditor("editor").getContent()
 		};
 		$.ajax({
-			url : "diary/saveDiary.do",
-			type : "POST",
+			url : "api/diary",
+			type : "PUT",
 			data : JSON.stringify(req),
 			contentType : "application/json;",
 			success : function(result) {
