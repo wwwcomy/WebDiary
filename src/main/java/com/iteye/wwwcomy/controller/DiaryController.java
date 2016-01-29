@@ -20,6 +20,13 @@ import com.iteye.wwwcomy.model.User;
 import com.iteye.wwwcomy.model.dto.DiaryDTOForRequest;
 import com.iteye.wwwcomy.service.impl.DiaryServiceImpl;
 
+/**
+ * @author wwwcomy
+ *
+ *         TODO Use Spring Security to achieve access control. Avoid 水平越权,垂直越权.
+ *         Session may not be needed, user information can be get from
+ *         SecurityContextHolder.
+ */
 @Controller
 @SessionAttributes("loginUser")
 @RequestMapping(value = "/diary", produces = "application/json")
@@ -33,20 +40,25 @@ public class DiaryController {
             ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
         Diary diary = diaryService.createDiary(dto, user);
-        // Map<String, String> map = new HashMap<String, String>();
-        // map.put("success", "true");
         return diary;
     }
 
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Diary loadDiary(@PathVariable String id, HttpSession session, ModelAndView view) {
+    public Diary getDiary(@PathVariable String id, HttpSession session, ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
         Diary diary = diaryService.getDiaryById(id);
         return diary;
     }
 
-    @RequestMapping(value = "diaryList.do")
+    /**
+     * Gets all the diary list
+     * 
+     * @param session
+     * @param view
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET)
     public Object loadDiaryList(HttpSession session, ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
         Map<String, String> map = new HashMap<String, String>();
