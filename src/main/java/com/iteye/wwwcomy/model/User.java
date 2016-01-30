@@ -22,9 +22,9 @@ public class User {
     private String email; // 电子邮箱
     private String phone; // 电话
     private int status; // 状态（是否在线，是否通过验证为正式用户）
-    private Date last_login;// 上次登录时间
+    private Date lasLogin;// 上次登录时间
     private int deleted;// 是否已经删除
-    private Date created_date;
+    private Date createdDate;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -76,12 +76,12 @@ public class User {
         this.status = status;
     }
 
-    public Date getLast_login() {
-        return last_login;
+    public Date getLastLogin() {
+        return lasLogin;
     }
 
-    public void setLast_login(Date lastLogin) {
-        last_login = lastLogin;
+    public void setLastLogin(Date lastLogin) {
+        lasLogin = lastLogin;
     }
 
     public int getDeleted() {
@@ -92,12 +92,12 @@ public class User {
         this.deleted = deleted;
     }
 
-    public Date getCreated_date() {
-        return created_date;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated_date(Date createdDate) {
-        created_date = createdDate;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
 }
