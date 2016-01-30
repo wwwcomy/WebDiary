@@ -1,6 +1,7 @@
 package com.iteye.wwwcomy.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.iteye.wwwcomy.model.Diary;
 import com.iteye.wwwcomy.model.User;
 import com.iteye.wwwcomy.model.dto.DiaryDTOForRequest;
@@ -59,11 +62,24 @@ public class DiaryController {
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
-    public Object loadDiaryList(HttpSession session, ModelAndView view) {
+    public List<Diary> getDiaryList(HttpSession session, ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("success", "true");
-        return map;
+        return null;
+    }
+
+    /**
+     * Gets all the diary's date list
+     * 
+     * @param session
+     * @param view
+     * @return
+     */
+    @RequestMapping(value = "/date/{param}", method = RequestMethod.GET)
+    public Object getDiaryDateList(@PathVariable String param, HttpSession session, ModelAndView view) {
+        User user = (User) session.getAttribute("loginUser");
+        JSONArray jsonArray = new JSONArray();
+
+        return null;
     }
 
     public DiaryServiceImpl getDiaryService() {
