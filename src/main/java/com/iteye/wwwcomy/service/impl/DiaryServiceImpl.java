@@ -1,6 +1,7 @@
 package com.iteye.wwwcomy.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -14,46 +15,56 @@ import com.iteye.wwwcomy.model.dto.DiaryDTOForRequest;
 
 @Service
 public class DiaryServiceImpl {
-	@Resource
-	private DiaryDao diaryDao;
-
-	@Transactional
-	public void createDiary(Date date, Date lastUpdateDate, String content, User user) {
-		Diary diary = new Diary();
-		diary.setContent(content);
-		diary.setUser(user);
-		diary.setDate(date);
-		diary.setLastUpdateDate(lastUpdateDate);
-		diaryDao.save(diary);
-	}
-
-	@Transactional
-	public Diary createDiary(DiaryDTOForRequest dto, User user) {
-		Diary diary = new Diary();
-		diary.setContent(dto.getContent());
-		diary.setUser(user);
-		diary.setDate(dto.getDate());
-		diary.setLastUpdateDate(new Date());
-		diary.setTitle(dto.getTitle());
-		diary.setWeather(dto.getWeather());
-		return diaryDao.save(diary);
-	}
+    @Resource
+    private DiaryDao diaryDao;
 
     @Transactional
-	public Diary getDiaryById(String id) {
+    public void createDiary(Date date, Date lastUpdateDate, String content, User user) {
+        Diary diary = new Diary();
+        diary.setContent(content);
+        diary.setUser(user);
+        diary.setDate(date);
+        diary.setLastUpdateDate(lastUpdateDate);
+        diaryDao.save(diary);
+    }
+
+    @Transactional
+    public Diary createDiary(DiaryDTOForRequest dto, User user) {
+        Diary diary = new Diary();
+        diary.setContent(dto.getContent());
+        diary.setUser(user);
+        diary.setDate(dto.getDate());
+        diary.setLastUpdateDate(new Date());
+        diary.setTitle(dto.getTitle());
+        diary.setWeather(dto.getWeather());
+        return diaryDao.save(diary);
+    }
+
+    @Transactional
+    public Diary getDiaryById(String id) {
         return diaryDao.getById(id);
     }
 
-	public Diary getDiary(User user, Date date) {
-		return diaryDao.getByDate(user, date);
-	}
+    public Diary getDiary(User user, Date date) {
+        return diaryDao.getByDate(user, date);
+    }
 
-	public DiaryDao getDiaryDao() {
-		return diaryDao;
-	}
+    @Transactional
+    public List<Diary> getAllDiaryByUser(User user) {
+        return diaryDao.getAllDiaryByUser(user);
+    }
 
-	public void setDiaryDao(DiaryDao diaryDao) {
-		this.diaryDao = diaryDao;
-	}
+    @Transactional
+    public List<Diary> getAllDiary() {
+        return diaryDao.getAllDiary();
+    }
+
+    public DiaryDao getDiaryDao() {
+        return diaryDao;
+    }
+
+    public void setDiaryDao(DiaryDao diaryDao) {
+        this.diaryDao = diaryDao;
+    }
 
 }

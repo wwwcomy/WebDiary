@@ -53,5 +53,28 @@
 
 		$('#treeview').treeview(options);
 
+		$.ajax({
+			url : "api/diary/date/14",
+			type : "GET",
+			success : function(result) {
+				console.log(result);
+				var dates = eval(result);
+				console.log(dates);
+				var defaultData = dates;
+				var options = {
+					//bootstrap2 : false, // no use.
+					showTags : false,
+					levels : 3,
+					data : defaultData,
+					color : "#428bca",
+					enableLinks : true
+				};
+				$('#treeview').treeview(options);
+			},
+			error : function() {
+				alert('读取失败,请联系管理员');
+			}
+		});
+
 	});
 </script>

@@ -53,6 +53,11 @@ public class Diary {
         this.user = user;
     }
 
+    /**
+     * Gets the creation date of the Diary.
+     * 
+     * @return
+     */
     public Date getDate() {
         return date;
     }
