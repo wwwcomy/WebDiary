@@ -110,7 +110,6 @@ public class DiaryController {
                         daySet.add(day);
                     }
                 } else {
-                    monthMap = new TreeMap<String, Set<String>>();
                     Set<String> daySet = new TreeSet<String>();
                     daySet.add(day);
                     monthMap.put(month, daySet);
@@ -164,6 +163,10 @@ public class DiaryController {
                 JSONArray tagsArr = new JSONArray();
                 tagsArr.add(String.valueOf(daysJsonArr.size()));
                 monthJsonObj.put("tags", tagsArr);
+                monthJsonObj.put("nodes", daysJsonArr);
+                JSONObject stateJson = new JSONObject();
+                stateJson.put("expanded", true);
+                monthJsonObj.put("state", stateJson);
                 monthJsonObj.put("nodes", daysJsonArr);
                 monthJsonArr.add(monthJsonObj);
             }
