@@ -6,8 +6,8 @@ void function($) {
 		success : function(result) {
 			var diary = eval(result);
 			if (diary != null) {
-				$("#currentTime").val(new Date(diary.lastUpdateDate));
-				$("#diaryTime").val(new Date(diary.date));
+				$("#currentTime").val(diary.lastUpdateDate);
+				$("#diaryTime").val(diary.date);
 				$("#weather").val(diary.weather);
 				$("#title").val(diary.title);
 				$("#content").html(diary.content);

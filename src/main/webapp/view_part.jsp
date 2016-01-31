@@ -8,7 +8,7 @@
 <script type="text/javascript" charset="utf-8"
 	src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
 <div>
-	<label for="currentTime" class="">当前时间:</label><input type="text"
+	<label for="currentTime" class="">上次修改时间:</label><input type="text"
 		id="currentTime" name="currentTime" />
 </div>
 <div>

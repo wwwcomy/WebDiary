@@ -10,12 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonPropertyOrder({ "id", "date", "lastUpdateDate", "weather", "title", "content" })
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 @Entity
 @Table(name = "diary")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Diary {
 
     private String id;
@@ -42,9 +48,9 @@ public class Diary {
         this.id = id;
     }
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "userId")
-    // @Transient
     public User getUser() {
         return user;
     }
@@ -58,6 +64,7 @@ public class Diary {
      * 
      * @return
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public Date getDate() {
         return date;
     }
@@ -75,6 +82,7 @@ public class Diary {
         this.content = content;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getLastUpdateDate() {
         return lastUpdateDate;
     }
