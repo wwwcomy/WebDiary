@@ -3,7 +3,7 @@
 <link href="css/bootstrap-treeview.css" rel="stylesheet">
 
 
-<h1>Bootstrap Tree View - DOM Tree</h1>
+<h1>Diary List</h1>
 <br />
 <div class="row">
 	<div class="col-sm-6">

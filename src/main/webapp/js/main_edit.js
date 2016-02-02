@@ -32,6 +32,33 @@ void function($) {
 			});
 		}
 	});
+	var showView = function(id) {
+		var mockAnchor = document.createElement("a")
+		mockAnchor.href = "view_part.jsp?id=" + id;
+		var $workspace = $('#main');
+		$(mockAnchor).loadingbar({
+			target : "#loadingbar-frame",
+			replaceURL : false,
+			direction : "right",
+			/* Default Ajax Parameters. */
+			async : true,
+			complete : function(xhr, text) {
+			},
+			cache : true,
+			error : function(xhr, text, e) {
+			},
+			global : true,
+			headers : {},
+			statusCode : {},
+			success : function(data, text, xhr) {
+				$workspace.html(data);
+			},
+			dataType : "html",
+			done : function(data) {
+			}
+		});
+		$(mockAnchor).click();
+	}
 	$("#save").click(function() {
 		var req = {
 			"date" : $("#diaryTime").val(),
@@ -47,6 +74,7 @@ void function($) {
 			success : function(result) {
 				if (eval(result)) {
 					alert('保存成功');
+					showView(result.id);
 				} else {
 					alert('异常，请联系管理员');
 				}
@@ -56,4 +84,5 @@ void function($) {
 			}
 		});
 	});
+
 }(window.jQuery);

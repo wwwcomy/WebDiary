@@ -1,6 +1,5 @@
 void function(_) {
 	var $workspace = _('#main');
-
 	_('.ws-load').each(function() {
 		$(this).loadingbar({
 			target : "#loadingbar-frame",
@@ -24,21 +23,4 @@ void function(_) {
 			}
 		});
 	});
-
-	// 向指定容器 ajax加载内容的链接
-	// _('.ajax-load[href]').live('click', function(/*jQuery.Event*/evt){
-	// var $this = _(this),
-	// href = $this.attr('href').addUrlParam($this.data('ajax-params')), //
-	// 参数同样要给form
-	// formRel = $this.data('form-rel'),
-	// target = $this.data('ajax-target');
-	// _.fancybox.close(true);
-	// $this.activeMenuItem($workspace);
-	//
-	// formRel ?
-	// _(formRel).attr('action', href).submit() :
-	// _(target).load(href, _.triggerOfDefaultElementIn(target));
-	//
-	// return evt.preventDefault() && false;
-	// });
 }(window.jQuery);
