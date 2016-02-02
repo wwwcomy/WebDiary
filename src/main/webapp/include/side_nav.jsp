@@ -5,14 +5,9 @@
 		<!-- TODO The "active" class has issue. -->
 		<li class="active"><a href="main.jsp">MainPage <span
 				class="sr-only">(current)</span></a></li>
-		<li><a href="view_part.jsp?id=14" class="ws-load">AjaxLoad</a></li>
 	</ul>
 	<ul class="nav nav-sidebar">
 		<li><a href="tree_part.jsp" class="ws-load">Diary List</a></li>
-		<li><a href="#" class="ws-load">Nav item again</a></li>
-	</ul>
-	<ul class="nav nav-sidebar">
-		<li><a href="#" class="ws-load">Nav item again</a></li>
-		<li><a href="#">One more nav</a></li>
+		<li><a href="view_part.jsp?id=14" class="ws-load">AjaxLoad</a></li>
 	</ul>
 </div>
