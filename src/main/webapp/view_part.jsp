@@ -10,9 +10,9 @@
 <script type="text/javascript" charset="utf-8"
 	src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
 <div class="blog-post">
-	<h2 class="blog-post-title" id="title">Sample blog post</h2>
+	<h2 class="blog-post-title" id="title">Blog post</h2>
 	<p class="blog-post-meta" id="diaryTime"></p>
 	<!-- <p class="blog-post-meta" id="currentTime"></p> -->
 	<p id="content"></p>
 </div>
-<script src="js/view.js"></script>
+<script src="js/view.js?id=<%=request.getParameter("id")%>" id="view"></script>

@@ -1,7 +1,12 @@
 //@ sourceURL=view.js
 void function($) {
+	var src = $("#view").attr("src");
+	var id = $.getUrlParam(src.substring(src.indexOf('?') + 1), "id");
+	if (id == null) {
+		return;
+	}
 	$.ajax({
-		url : "api/diary/14",
+		url : "api/diary/" + id,
 		type : "GET",
 		success : function(result) {
 			var diary = eval(result);

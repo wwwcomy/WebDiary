@@ -1,5 +1,5 @@
 void function(_) {
-	var $workspace = _('#main'), $window = _(window), $top = _('#top'), $left = _('#aside_left'), $bottom = _('#bottom'), $right = _('#sub_aside_right'), $center = _('#mid_center'), $new = _("#mid_center .news .span6"), wsWidth = 1024, wsHeight = 768;
+	var $workspace = _('#main');
 
 	_('.ws-load').each(function() {
 		$(this).loadingbar({
