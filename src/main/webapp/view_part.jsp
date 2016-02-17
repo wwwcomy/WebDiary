@@ -10,7 +10,11 @@
 <script type="text/javascript" charset="utf-8"
 	src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
 <div class="blog-post">
-	<h2 class="blog-post-title" id="title">Blog post</h2>
+	<h2 class="blog-post-title">
+		<span id="title">Blog post</span> <em><a href="#" title="编辑"
+			id="editBtn"><img alt="编辑" src="img/btn_edit.png"></a> </em>
+	</h2>
+
 	<p class="blog-post-meta" id="diaryTime"></p>
 	<!-- <p class="blog-post-meta" id="currentTime"></p> -->
 	<p id="content"></p>
