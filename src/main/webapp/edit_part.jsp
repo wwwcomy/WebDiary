@@ -19,14 +19,15 @@
 		id="diaryTime" name="diaryTime" />
 </div>
 <div>
-	<label for="weather" class="">天气</label> <input id="weather"
+	<label for="weather" class="">天气:</label> <input id="weather"
 		name="weather" />
 </div>
 <div>
-	<label for="title" class="">标题</label> <input id="title" name="title" />
+	<label for="title" class="">标题:</label> <input id="title" name="title" />
 </div>
 <script id="editor" type="text/plain" style="height: 500px;"></script>
 <p align="right">
 	<a id="save" class="btn btn-lg btn-success" role="button">Save</a>
 </p>
-<script src="js/main_edit.js"></script>
+<script src="js/edit_part.js?id=<%=request.getParameter("id")%>"
+	id="edit_part"></script>

@@ -36,7 +36,7 @@
 					device.</p>
 				<p align="center">
 					<a id="addNew" class="btn btn-lg btn-primary ws-load" role="button"
-						href="edit_part.jsp">Write a new one</a>
+						href="new_part.jsp">Write a new one</a>
 				</p>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-//@ sourceURL=tree_edit.js
+//@ sourceURL=tree_part.js
 void function($) {
 	// TODO should extract this out and generate tree json using OO
 	var getTreeJson = function(data) {

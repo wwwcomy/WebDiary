@@ -12,4 +12,4 @@
 	</div>
 </div>
 <script src="js/bootstrap-treeview.js"></script>
-<script src="js/tree_view.js"></script>
+<script src="js/tree_part.js"></script>
