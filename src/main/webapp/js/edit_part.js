@@ -93,7 +93,7 @@ void function($) {
 			"content" : UE.getEditor("editor").getContent()
 		};
 		$.ajax({
-			url : "api/diary",
+			url : "api/diary/" + id,
 			type : "PUT",
 			data : JSON.stringify(req),
 			contentType : "application/json;",

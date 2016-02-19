@@ -1,12 +1,9 @@
 package com.iteye.wwwcomy.controller;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,8 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.iteye.wwwcomy.model.Diary;
 import com.iteye.wwwcomy.model.User;
 import com.iteye.wwwcomy.model.dto.DiaryDTOForRequest;
@@ -50,7 +45,7 @@ public class DiaryController {
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
-    public Diary saveDiaryForAjax(@RequestBody DiaryDTOForRequest dto, String content, HttpSession session,
+    public Diary createDiary(@RequestBody DiaryDTOForRequest dto, String content, HttpSession session,
             ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
         Diary diary = diaryService.createDiary(dto, user);
@@ -62,6 +57,15 @@ public class DiaryController {
     public Diary getDiary(@PathVariable String id, HttpSession session, ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
         Diary diary = diaryService.getDiaryById(id);
+        return diary;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public Diary updateDiary(@PathVariable String id, @RequestBody DiaryDTOForRequest dto, HttpSession session,
+            ModelAndView view) {
+        User user = (User) session.getAttribute("loginUser");
+        Diary diary = diaryService.updateDiary(id, dto, user);
         return diary;
     }
 

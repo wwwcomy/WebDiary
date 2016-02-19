@@ -41,6 +41,19 @@ public class DiaryServiceImpl {
     }
 
     @Transactional
+    public Diary updateDiary(String id, DiaryDTOForRequest dto, User user) {
+        Diary diary = diaryDao.getById(id);
+        diary.setContent(dto.getContent());
+        diary.setUser(user);
+        diary.setDate(dto.getDate());
+        diary.setLastUpdateDate(new Date());
+        diary.setTitle(dto.getTitle());
+        diary.setWeather(dto.getWeather());
+        diaryDao.update(diary);
+        return diary;
+    }
+
+    @Transactional
     public Diary getDiaryById(String id) {
         return diaryDao.getById(id);
     }
