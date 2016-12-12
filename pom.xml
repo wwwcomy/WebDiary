@@ -17,6 +17,8 @@
 		<commons-io.version>2.5</commons-io.version>
 		<jackson.version>2.8.5</jackson.version>
 		<jaxb.version>2.2.12</jaxb.version>
+		<mybatis-spring.version>1.3.0</mybatis-spring.version>
+		<mybatis.version>3.4.1</mybatis.version>
 
 		<junit.version>4.12</junit.version>
 	</properties>
@@ -58,11 +60,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
@@ -82,11 +79,6 @@
 			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
@@ -101,6 +93,17 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 			<version>${jaxb.version}</version>
+		</dependency>
+		<!-- Persistent layer -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
 		</dependency>
 
 		<!-- Unit Test -->
