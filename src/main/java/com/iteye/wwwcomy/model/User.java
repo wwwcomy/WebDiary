@@ -2,18 +2,10 @@ package com.iteye.wwwcomy.model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
  * 
  * @author xingnan.liu
  */
-@Entity
-@Table(name = "user")
 public class User {
     private int userid; // 用户ID
 
@@ -26,8 +18,6 @@ public class User {
     private int deleted;// 是否已经删除
     private Date createdDate;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getUserid() {
         return userid;
     }

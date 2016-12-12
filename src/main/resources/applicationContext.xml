@@ -46,29 +46,24 @@
 		<!-- 是否对sql进行自动提交 -->
 		<property name="defaultAutoCommit" value="true" />
 	</bean>
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"></property>
-		<!-- 配置hibernate属性 -->
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
-			</props>
-		</property>
-		<!-- 配置持久化类 -->
-		<property name="packagesToScan">
-			<list>
-				<value>com.iteye.wwwcomy.model</value>
-			</list>
-		</property>
+	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
 	</bean>
-	<bean id="txManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory"></property>
+
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.iteye.wwwcomy.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
+
+	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<!-- <bean id="LoginInterceptor" class="test.spring.LogInterceptor"> </bean> 
 		<aop:config> <aop:aspect id="logInterceptor" ref="LoginInterceptor"> <aop:after-returning 
 		pointcut="execution(public * test.spring.UserDaoImpl.*(..)))" method="before" 

@@ -2,15 +2,6 @@ package com.iteye.wwwcomy.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -20,8 +11,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonPropertyOrder({ "id", "date", "lastUpdateDate", "weather", "title", "content" })
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-@Entity
-@Table(name = "diary")
 public class Diary {
 
     private String id;
@@ -38,8 +27,6 @@ public class Diary {
     private String title;
     private String content;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public String getId() {
         return id;
     }
@@ -49,8 +36,6 @@ public class Diary {
     }
 
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "userId")
     public User getUser() {
         return user;
     }
@@ -73,7 +58,6 @@ public class Diary {
         this.date = date;
     }
 
-    @Column(length = 16777215)
     public String getContent() {
         return content;
     }

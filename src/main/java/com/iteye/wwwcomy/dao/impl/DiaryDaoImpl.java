@@ -11,29 +11,16 @@ import com.iteye.wwwcomy.model.Diary;
 import com.iteye.wwwcomy.model.User;
 
 @Repository
-public class DiaryDaoImpl extends BaseDaoImpl<Diary> implements DiaryDao {
+public class DiaryDaoImpl implements DiaryDao {
 
-    @SuppressWarnings("unchecked")
     @Override
     public Diary getByDate(User user, Date date) {
-        List<Diary> list = getCurrentSession()
-                .createQuery("FROM " + getClazz().getSimpleName() + " WHERE userId=(:userId) and date=(:date)")
-                .setParameter("userId", String.valueOf(user.getUserid())).setParameter("date", date).list();
-        if (list != null && list.size() > 0) {
-            return list.get(0);
-        }
         return null;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public List<Diary> getAllDiaryByUser(User user) {
-        List<Diary> list = getCurrentSession()
-                .createQuery("FROM " + getClazz().getSimpleName() + " WHERE userId=(:userId)")
-                .setParameter("userId", String.valueOf(user.getUserid())).list();
-        if (list != null && list.size() > 0) {
-            return list;
-        }
         return Collections.EMPTY_LIST;
     }
 
@@ -45,11 +32,43 @@ public class DiaryDaoImpl extends BaseDaoImpl<Diary> implements DiaryDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Diary> getAllDiary() {
-        List<Diary> list = getCurrentSession().createQuery("FROM " + getClazz().getSimpleName()).list();
-        if (list != null && list.size() > 0) {
-            return list;
-        }
         return Collections.EMPTY_LIST;
+    }
+
+    @Override
+    public Diary save(Diary entity) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void delete(String id) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void update(Diary entity) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public Diary getById(String id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<Diary> getByIds(String[] ids) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<Diary> findAll() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
