@@ -31,4 +31,11 @@ public class TestUser {
         System.out.println(user);
     }
 
+    @Test
+    @Transactional
+    public void loadUserById() {
+        User user = userDao.getById("1");
+        System.out.println(user);
+    }
+
 }

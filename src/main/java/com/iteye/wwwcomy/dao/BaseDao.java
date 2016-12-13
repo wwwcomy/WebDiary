@@ -2,6 +2,8 @@ package com.iteye.wwwcomy.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface BaseDao<T> {
     /**
      * 保存实体
@@ -30,7 +32,7 @@ public interface BaseDao<T> {
      * @param id
      * @return
      */
-    T getById(String id);
+    T getById(@Param("id") String id);
 
     /**
      * 按id查询

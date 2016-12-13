@@ -5,6 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.iteye.wwwcomy.dao.UserDao">
 	<select id="loadUser" parameterType="java.lang.String"
 		resultType="com.iteye.wwwcomy.model.User">
-		select * from User U where U.name = #{userName}
+		select * from User U where U.name = #{userName};
+	</select>
+	<select id="getById" parameterType="java.lang.String"
+		resultType="com.iteye.wwwcomy.model.User">
+		select * from User U where U.userid = #{id};
 	</select>
 </mapper>
