@@ -15,7 +15,7 @@ public class User {
     private String phone; // 电话
     private int status; // 状态（是否在线，是否通过验证为正式用户）
     private Date lasLogin;// 上次登录时间
-    private int deleted;// 是否已经删除
+    private String deleted;// 是否已经删除
     private Date createdDate;
 
     public int getUserid() {
@@ -74,20 +74,20 @@ public class User {
         lasLogin = lastLogin;
     }
 
-    public int getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(int deleted) {
-        this.deleted = deleted;
-    }
-
     public Date getCreatedDate() {
         return createdDate;
     }
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(String deleted) {
+        this.deleted = deleted;
     }
 
 }

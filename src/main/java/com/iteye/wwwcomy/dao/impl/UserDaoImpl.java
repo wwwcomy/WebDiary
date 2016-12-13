@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.iteye.wwwcomy.dao.UserDao;
 import com.iteye.wwwcomy.model.User;
 
-@Repository
 public class UserDaoImpl implements UserDao {
 
     @Override
