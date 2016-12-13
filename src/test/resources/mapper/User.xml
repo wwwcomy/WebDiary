@@ -3,12 +3,19 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iteye.wwwcomy.dao.UserDao">
-	<select id="loadUser" parameterType="java.lang.String"
-		resultType="com.iteye.wwwcomy.model.User">
-		select * from User U where U.name = #{userName};
+	<resultMap type="com.iteye.wwwcomy.model.User" id="userResult">
+		<id property="userid" column="userid" />
+		<result property="name" column="userName" />
+		<result property="password" column="password" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+	</resultMap>
+	<select id="loadUser" resultType="com.iteye.wwwcomy.model.User">
+		select * from users where name
+		= #{userName};
 	</select>
-	<select id="getById" parameterType="java.lang.String"
-		resultType="com.iteye.wwwcomy.model.User">
-		select * from User U where U.userid = #{id};
+	<select id="findById" resultType="com.iteye.wwwcomy.model.User">
+		select * from users where
+		userid = #{id};
 	</select>
 </mapper>

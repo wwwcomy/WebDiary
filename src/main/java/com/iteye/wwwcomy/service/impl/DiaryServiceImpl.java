@@ -42,7 +42,7 @@ public class DiaryServiceImpl {
 
     @Transactional
     public Diary updateDiary(String id, DiaryDTOForRequest dto, User user) {
-        Diary diary = diaryDao.getById(id);
+        Diary diary = diaryDao.findById(id);
         diary.setContent(dto.getContent());
         diary.setUser(user);
         diary.setDate(dto.getDate());
@@ -55,7 +55,7 @@ public class DiaryServiceImpl {
 
     @Transactional
     public Diary getDiaryById(String id) {
-        return diaryDao.getById(id);
+        return diaryDao.findById(id);
     }
 
     public Diary getDiary(User user, Date date) {

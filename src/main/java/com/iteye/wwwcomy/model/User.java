@@ -9,14 +9,14 @@ import java.util.Date;
 public class User {
     private int userid; // 用户ID
 
-    private String username; // 用户名
-    private String password; // 用户密码
+    private Date createdDate;
+    private String deleted;// 是否已经删除
     private String email; // 电子邮箱
+    private Date lasLogin;// 上次登录时间
+    private String name; // 用户名
+    private String password; // 用户密码
     private String phone; // 电话
     private int status; // 状态（是否在线，是否通过验证为正式用户）
-    private Date lasLogin;// 上次登录时间
-    private String deleted;// 是否已经删除
-    private Date createdDate;
 
     public int getUserid() {
         return userid;
@@ -26,20 +26,20 @@ public class User {
         this.userid = userid;
     }
 
-    public String getUsername() {
-        return username;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public String getPassword() {
-        return password;
+    public String getDeleted() {
+        return deleted;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setDeleted(String deleted) {
+        this.deleted = deleted;
     }
 
     public String getEmail() {
@@ -48,6 +48,30 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getLasLogin() {
+        return lasLogin;
+    }
+
+    public void setLasLogin(Date lasLogin) {
+        this.lasLogin = lasLogin;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhone() {
@@ -66,28 +90,9 @@ public class User {
         this.status = status;
     }
 
-    public Date getLastLogin() {
-        return lasLogin;
-    }
-
-    public void setLastLogin(Date lastLogin) {
-        lasLogin = lastLogin;
-    }
-
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public String getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(String deleted) {
-        this.deleted = deleted;
+    @Override
+    public String toString() {
+        return "User:" + this.name;
     }
 
 }

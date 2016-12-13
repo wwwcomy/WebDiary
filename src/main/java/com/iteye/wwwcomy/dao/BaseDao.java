@@ -27,12 +27,19 @@ public interface BaseDao<T> {
     void update(T entity);
 
     /**
+     * 替换实体
+     * 
+     * @param entity
+     */
+    void replace(T entity);
+
+    /**
      * 按id查询
      * 
      * @param id
      * @return
      */
-    T getById(@Param("id") String id);
+    T findById(@Param("id") String id);
 
     /**
      * 按id查询
@@ -40,7 +47,7 @@ public interface BaseDao<T> {
      * @param ids
      * @return
      */
-    List<T> getByIds(String[] ids);
+    List<T> findByIds(String[] ids);
 
     /**
      * 查询所有

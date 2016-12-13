@@ -34,7 +34,7 @@ public class TestUser {
     @Test
     @Transactional
     public void loadUserById() {
-        User user = userDao.getById("1");
+        User user = userDao.findById("1");
         System.out.println(user);
     }
 
