@@ -3,13 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iteye.wwwcomy.dao.UserDao">
-	<resultMap type="com.iteye.wwwcomy.model.User" id="userResult">
-		<id property="userid" column="userid" />
-		<result property="name" column="userName" />
-		<result property="password" column="password" />
-		<result property="email" column="email" />
-		<result property="phone" column="phone" />
-	</resultMap>
 	<select id="loadUser" resultType="com.iteye.wwwcomy.model.User">
 		select * from users where name
 		= #{userName};
