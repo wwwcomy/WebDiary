@@ -1,16 +1,16 @@
 var gulp = require('gulp');
-//ÒıÈëgulp×é¼ş
-//jsÓï·¨¼ì²é
+//å¼•å…¥gulpç»„ä»¶
+//jsè¯­æ³•æ£€æŸ¥
 var jshint = require('gulp-jshint');
-//sassÔ¤´¦Àí
+//sassé¢„å¤„ç†
 var sass = require('gulp-sass');
-//ÎÄ¼şºÏ²¢
+//æ–‡ä»¶åˆå¹¶
 var concat = require('gulp-concat');
-//jsÑ¹Ëõ
+//jså‹ç¼©
 var uglify = require('gulp-uglify');
-//ÖØÃüÃû
+//é‡å‘½å
 var rename = require('gulp-rename');
-//server·şÎñ
+//serveræœåŠ¡
 browserSync = require('browser-sync').create();
 
 var jsFiles = [
@@ -18,7 +18,7 @@ var jsFiles = [
   './node_modules/angular-ui-router/release/angular-ui-router.js'
 ];
 
-//¼ì²é½Å±¾
+//æ£€æŸ¥è„šæœ¬
 gulp.task('lint', function() {
   gulp.src('./app/**/*.js')
           .pipe(jshint())
@@ -26,7 +26,7 @@ gulp.task('lint', function() {
 
 })
 
-//±àÒëSass
+//ç¼–è¯‘Sass
 gulp.task('sass', function() {
   console.log('sass!');
   gulp.src('./app/style/*.scss')
@@ -37,7 +37,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./dist/css'))
 })
 
-//ºÏ²¢¡¢Ñ¹ËõjsÎÄ¼ş
+//åˆå¹¶ã€å‹ç¼©jsæ–‡ä»¶
 gulp.task('scripts', function() {
   gulp.src('./app/**/*.js')
     .pipe(concat('all.js'))
@@ -46,7 +46,7 @@ gulp.task('scripts', function() {
     .pipe(uglify())
     .pipe(gulp.dest('./dist/js'));
 });
-//ºÏ²¢¡¢Ñ¹ËõÀ´×ÔnpmµÄjs×ÊÔ´ÎÄ¼ş
+//åˆå¹¶ã€å‹ç¼©æ¥è‡ªnpmçš„jsèµ„æºæ–‡ä»¶
 gulp.task('npmscripts', function() {
   return gulp.src(jsFiles)
   .pipe(concat('npm.js'))
@@ -56,7 +56,7 @@ gulp.task('npmscripts', function() {
   .pipe(gulp.dest('./dist/js'));
 })
 
-//ºÏ²¢¡¢Ñ¹ËõcssÎÄ¼ş
+//åˆå¹¶ã€å‹ç¼©cssæ–‡ä»¶
 // gulp.task('css', function() {
 //   gulp.src('./app/style/*.css')
 //     .pipe(concat('style.css'))
@@ -66,7 +66,7 @@ gulp.task('npmscripts', function() {
 //     // .pipe(gulp.dest('./dist/css'));
 // });
 
-//Ê¹ÓÃconnectÆô¶¯Ò»¸öWeb·şÎñÆ÷
+//ä½¿ç”¨connectå¯åŠ¨ä¸€ä¸ªWebæœåŠ¡å™¨
 gulp.task('browserSync', function () {
   browserSync.init({
          server: {
@@ -75,11 +75,11 @@ gulp.task('browserSync', function () {
      });
 });
 
-//Ä¬ÈÏÈÎÎñ
+//é»˜è®¤ä»»åŠ¡
 gulp.task('default', function() {
   gulp.run('npmscripts');
 
-//¼àÌıjs±ä»¯
+//ç›‘å¬jså˜åŒ–
 browserSync.init({
        server: {
            baseDir: "./"
