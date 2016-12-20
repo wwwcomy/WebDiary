@@ -95,6 +95,7 @@ public class DiaryController {
     @RequestMapping(value = "/date/{param}", method = RequestMethod.GET)
     public Object getDiaryDateList(@PathVariable String param, HttpSession session, ModelAndView view,
             HttpServletRequest request, HttpServletResponse response) throws IOException {
+    	LOGGER.info("Getting diary date list.");
         User user = (User) session.getAttribute("loginUser");
         // TODO Change getAllDiary to getAllDiaryByUser
         List<Diary> diaries = diaryService.getAllDiary();
