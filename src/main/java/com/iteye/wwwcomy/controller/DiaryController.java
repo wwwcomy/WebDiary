@@ -30,8 +30,7 @@ import com.iteye.wwwcomy.utils.DateUtil;
 /**
  * @author wwwcomy
  *
- *         TODO Use Spring Security to achieve access control. Avoid 水平越权,垂直越权.
- *         Session may not be needed, user information can be get from
+ *         TODO Use Spring Security to achieve access control. Avoid 水平越权,垂直越权. Session may not be needed, user information can be get from
  *         SecurityContextHolder.
  */
 @Controller
@@ -45,11 +44,12 @@ public class DiaryController {
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
-    public Diary createDiary(@RequestBody DiaryDTOForRequest dto, String content, HttpSession session,
-            ModelAndView view) {
+    public Diary createDiary(@RequestBody Diary inputDiary, String content, HttpSession session, ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
-        Diary diary = diaryService.createDiary(dto, user);
-        return diary;
+        // TODO user handling
+        inputDiary.setUserId("1");
+        diaryService.createDiary(inputDiary);
+        return inputDiary;
     }
 
     @ResponseBody
@@ -62,8 +62,7 @@ public class DiaryController {
 
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public Diary updateDiary(@PathVariable String id, @RequestBody DiaryDTOForRequest dto, HttpSession session,
-            ModelAndView view) {
+    public Diary updateDiary(@PathVariable String id, @RequestBody DiaryDTOForRequest dto, HttpSession session, ModelAndView view) {
         User user = (User) session.getAttribute("loginUser");
         Diary diary = diaryService.updateDiary(id, dto, user);
         return diary;
@@ -93,9 +92,9 @@ public class DiaryController {
      */
     @ResponseBody
     @RequestMapping(value = "/date/{param}", method = RequestMethod.GET)
-    public Object getDiaryDateList(@PathVariable String param, HttpSession session, ModelAndView view,
-            HttpServletRequest request, HttpServletResponse response) throws IOException {
-    	LOGGER.info("Getting diary date list.");
+    public Object getDiaryDateList(@PathVariable String param, HttpSession session, ModelAndView view, HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        LOGGER.info("Getting diary date list.");
         User user = (User) session.getAttribute("loginUser");
         // TODO Change getAllDiary to getAllDiaryByUser
         List<Diary> diaries = diaryService.getAllDiary();

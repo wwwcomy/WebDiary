@@ -30,14 +30,14 @@ public class DiaryTest {
         d.setDate(new Date());
         d.setLastUpdateDate(new Date());
         d.setUser(new User());
-        System.out.println(diaryDao.save(d));
+        diaryDao.save(d);
     }
 
     @Test
     @Transactional
     public void loadDiary() {
         User user = new User();
-        user.setUserid(1);
+        user.setUserid("1");
         Diary d = diaryDao.getByDate(user, new Date());
         System.out.println(d);
     }

@@ -1,5 +1,5 @@
 CREATE TABLE users (
-userid varchar(32) NOT NULL,
+userid varchar(32) serial NOT NULL,
 name varchar(64),
 password varchar(128),
 salt varchar(128),
@@ -11,12 +11,11 @@ created_date timestamp(6),
 deleted varchar(32),
 modified_date timestamp(6),
 enabled bool,
-password_expired_date timestamp(6),
 PRIMARY KEY ("userid")
 );
 
 CREATE TABLE diary (
-id varchar(32) NOT NULL,
+id varchar(32) serial NOT NULL,
 userid varchar(32) NOT NULL,
 created_date timestamp(6),
 last_update_date timestamp(6),
@@ -26,6 +25,7 @@ content varchar(4000),
 PRIMARY KEY ("id")
 );
 
-insert into users (userid,password,name,deleted,status) values ('1','1','1@1.com',0,0);
+insert into users (userid,password,email,name,deleted,status) values ('1','1','1@1.com','1@1.com',0,0);
 insert into diary (id,userid,created_date,last_update_date,title,weather,content) values('1','1','2016-12-20','2016-12-20','title1','Sunny','Test Content');
+insert into diary (id,userid,created_date,last_update_date,title,weather,content) values('2','1','2016-12-20','2016-12-20','title2','Sunny','Test Content2');
 

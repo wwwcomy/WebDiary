@@ -1,5 +1,6 @@
 package com.iteye.wwwcomy.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -23,6 +24,17 @@ public class DiaryServiceImplTest {
     public void canGetAllDiary() {
         List<Diary> diaries = diaryService.getAllDiary();
         Assert.assertTrue(diaries.size() > 0);
+    }
+
+    @Test
+    public void canSaveDiary() {
+        Diary diary = new Diary();
+        diary.setContent("test_content");
+        diary.setDate(new Date());
+        diary.setLastUpdateDate(new Date());
+        diary.setTitle("test_title");
+        diary.setUserId("1");
+        diaryService.createDiary(diary);
     }
 
     public DiaryServiceImpl getDiaryService() {

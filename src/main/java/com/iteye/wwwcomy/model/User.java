@@ -7,7 +7,7 @@ import java.util.Date;
  * @author xingnan.liu
  */
 public class User {
-    private int userid; // 用户ID
+    private String userid; // 用户ID
 
     private Date createdDate;
     private String deleted;// 是否已经删除
@@ -15,14 +15,15 @@ public class User {
     private Date lasLogin;// 上次登录时间
     private String name; // 用户名
     private String password; // 用户密码
+    private String salt;
     private String phone; // 电话
     private int status; // 状态（是否在线，是否通过验证为正式用户）
 
-    public int getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 
@@ -72,6 +73,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     public String getPhone() {

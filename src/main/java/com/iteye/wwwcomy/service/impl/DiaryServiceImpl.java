@@ -29,15 +29,8 @@ public class DiaryServiceImpl {
     }
 
     @Transactional
-    public Diary createDiary(DiaryDTOForRequest dto, User user) {
-        Diary diary = new Diary();
-        diary.setContent(dto.getContent());
-        diary.setUser(user);
-        diary.setDate(dto.getDate());
-        diary.setLastUpdateDate(new Date());
-        diary.setTitle(dto.getTitle());
-        diary.setWeather(dto.getWeather());
-        return diaryDao.save(diary);
+    public void createDiary(Diary diary) {
+        diaryDao.save(diary);
     }
 
     @Transactional

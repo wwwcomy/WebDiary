@@ -7,8 +7,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<id property="userid" column="userid" />
 		<result property="name" column="userName" />
 		<result property="password" column="password" />
+		<result property="salt" column="salt" />
 		<result property="email" column="email" />
 		<result property="phone" column="phone" />
+		<result property="status" column="status" />
 	</resultMap>
 	<select id="loadUser" resultType="com.iteye.wwwcomy.model.User">
 		select * from users where name

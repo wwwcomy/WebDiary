@@ -14,6 +14,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class Diary {
 
     private String id;
+    private String userId;
+
     private User user;
     private Date date;
     /**
@@ -89,6 +91,15 @@ public class Diary {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @JsonIgnore
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override
