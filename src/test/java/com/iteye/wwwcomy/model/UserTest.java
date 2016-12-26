@@ -12,7 +12,7 @@ import com.iteye.wwwcomy.dao.UserDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "classpath:applicationContext.xml" })
-public class TestUser {
+public class UserTest {
     @Resource
     private UserDao userDao;
 

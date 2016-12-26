@@ -9,8 +9,8 @@
 	<description>WebDiary</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.source.version>1.7</java.source.version>
-		<java.target.version>1.7</java.target.version>
+		<java.source.version>1.8</java.source.version>
+		<java.target.version>1.8</java.target.version>
 		<spring.version>4.3.4.RELEASE</spring.version>
 		<slf4j.version>1.7.21</slf4j.version>
 		<commons-fileupload.version>1.3.2</commons-fileupload.version>

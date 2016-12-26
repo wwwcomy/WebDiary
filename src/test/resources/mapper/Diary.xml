@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteye.wwwcomy.dao.DiaryDao">
+	<resultMap type="com.iteye.wwwcomy.model.Diary" id="DiaryResult">
+		<id property="id" column="diary_id" />
+		<result property="date" column="diary_created_date" />
+		<result property="lastUpdateDate" column="diary_last_update_date" />
+		<result property="weather" column="weather" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<association property="user" javaType="com.iteye.wwwcomy.model.User">
+			<id property="userid" column="user_id" />
+			<result property="name" column="user_name" />
+			<result property="email" column="user_email" />
+		</association>
+	</resultMap>
+	<select id="getAllDiary" resultMap="DiaryResult">
+		select T_1.id as diary_id,
+		T_1.created_date as diary_created_date,
+		T_1.last_update_date as diary_last_update_date,
+		T_1.title as title,
+		T_1.weather as weather,
+		T_1.content as content,
+		T_2.userid as user_id,
+		T_2.name as user_name,
+		T_2.email as user_email
+		from diary T_1
+		left join users T_2 on T_1.userid=t_2.userid;
+	</select>
+</mapper>

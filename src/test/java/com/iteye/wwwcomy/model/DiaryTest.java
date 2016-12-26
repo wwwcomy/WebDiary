@@ -18,7 +18,7 @@ import com.iteye.wwwcomy.dao.DiaryDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "classpath:applicationContext.xml" })
-public class TestDiary {
+public class DiaryTest {
     @Resource
     private DiaryDao diaryDao;
 
