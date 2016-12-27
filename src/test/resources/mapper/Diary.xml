@@ -21,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="weather" column="weather" />
 		<result property="title" column="title" />
 		<result property="content" column="content" />
+		<result property="userId" column="user_id" />
 		<association property="user" javaType="com.iteye.wwwcomy.model.User">
 			<id property="userid" column="user_id" />
 			<result property="name" column="user_name" />
@@ -66,5 +67,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(userid,created_date,last_update_date,title,weather,content)
 		values
 		(#{userId},#{date},#{lastUpdateDate},#{title},#{weather},#{content})
+	</insert>
+	<insert id="update" useGeneratedKeys="true" keyProperty="id"
+		parameterMap="diaryParam">
+		update diary
+		set created_date = #{date},last_update_date =
+		#{lastUpdateDate},title = #{title},weather = #{weather},content =
+		#{content} where id=#{id};
 	</insert>
 </mapper>
