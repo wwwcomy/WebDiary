@@ -1,5 +1,5 @@
 CREATE TABLE users (
-userid varchar(32) serial NOT NULL,
+userid serial NOT NULL,
 name varchar(64),
 password varchar(128),
 salt varchar(128),
@@ -15,8 +15,8 @@ PRIMARY KEY ("userid")
 );
 
 CREATE TABLE diary (
-id varchar(32) serial NOT NULL,
-userid varchar(32) NOT NULL,
+id serial NOT NULL,
+userid int4 NOT NULL,
 created_date timestamp(6),
 last_update_date timestamp(6),
 title varchar(128),
