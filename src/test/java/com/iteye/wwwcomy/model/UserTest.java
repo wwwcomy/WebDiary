@@ -27,7 +27,7 @@ public class UserTest {
     @Test
     @Transactional
     public void loadUser() {
-        User user = userDao.loadUser("abc");
+        User user = userDao.loadUser("abc", null);
         System.out.println(user);
     }
 

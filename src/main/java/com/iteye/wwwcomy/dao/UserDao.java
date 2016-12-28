@@ -8,8 +8,6 @@ import com.iteye.wwwcomy.model.User;
 @Repository
 public interface UserDao extends BaseDao<User> {
 
-    public User loadUser(@Param("userName") String userName);
+    public User loadUser(@Param("userName") String userName, @Param("password") String password);
 
-    public User loadUser(String userName, String password);
-    
 }

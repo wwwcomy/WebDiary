@@ -14,7 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	<select id="loadUser" resultType="com.iteye.wwwcomy.model.User">
 		select * from users where name
-		= #{userName};
+		= #{userName}
+		<if test="password != null">
+			AND password = #{password}
+		</if>
+		;
 	</select>
 	<select id="findById" resultType="com.iteye.wwwcomy.model.User">
 		select * from users where

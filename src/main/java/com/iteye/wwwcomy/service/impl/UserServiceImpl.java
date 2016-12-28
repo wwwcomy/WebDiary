@@ -13,10 +13,11 @@ public class UserServiceImpl {
     private UserDao userDao;
 
     public User loadUser(String userName) {
-        return userDao.loadUser(userName);
+        return userDao.loadUser(userName, null);
     }
 
     public User loadUser(String userName, String password) {
+        // TODO this is not right, only for the 1st phase test only. Should consider salt & hash
         return userDao.loadUser(userName, password);
     }
 
