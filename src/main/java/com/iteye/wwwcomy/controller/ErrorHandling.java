@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.iteye.wwwcomy.model.ValidationErrorMessage;
+import com.iteye.wwwcomy.model.dto.ValidationErrorMessage;
 import com.iteye.wwwcomy.model.exception.NotFoundException;
 
 @ControllerAdvice

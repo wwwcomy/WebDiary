@@ -5,10 +5,12 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iteye.wwwcomy.model.User;
+import com.iteye.wwwcomy.model.dto.AuthenticationResponse;
 import com.iteye.wwwcomy.service.impl.UserServiceImpl;
 
 @Controller
@@ -25,14 +27,13 @@ public class DispatchController {
      * @return
      */
     @RequestMapping(value = "login.do", method = RequestMethod.POST)
-    public ModelAndView login(String username, String password, ModelAndView view) {
+    @ResponseBody
+    public AuthenticationResponse login(String username, String password) {
         User user = userService.loadUser(username, password);
         if (user == null) {
-            view.addObject("success", "false");
+            return new AuthenticationResponse(false);
         } else {
-            view.addObject("loginUser", user);
-            view.setViewName("redirect:main.jsp");
+            return new AuthenticationResponse(true);
         }
-        return view;
     }
 }

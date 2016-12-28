@@ -33,6 +33,13 @@ public class UserTest {
 
     @Test
     @Transactional
+    public void loadUser2() {
+        User user = userDao.loadUser("abc", "2");
+        System.out.println(user);
+    }
+
+    @Test
+    @Transactional
     public void loadUserById() {
         User user = userDao.findById(1);
         System.out.println(user);

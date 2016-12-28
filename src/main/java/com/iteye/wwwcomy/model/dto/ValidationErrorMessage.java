@@ -1,6 +1,4 @@
-package com.iteye.wwwcomy.model;
-
-import javax.xml.bind.annotation.XmlAttribute;
+package com.iteye.wwwcomy.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -52,7 +50,6 @@ public class ValidationErrorMessage {
      *
      * @return A documented error code representing a validation error.
      */
-    @XmlAttribute(name = "code")
     @JsonProperty("code")
     public String getCode() {
         return code;
@@ -67,7 +64,6 @@ public class ValidationErrorMessage {
      * @return A human-readable English description of the reason for the error. Expected to be used purely for debugging and not required to be
      *         translatable.
      */
-    @XmlAttribute(name = "detail")
     @JsonProperty("detail")
     public String getDetail() {
         return detail;
@@ -81,7 +77,6 @@ public class ValidationErrorMessage {
      *
      * @return The name of the field that caused the validation error. May be <tt>null</tt>.
      */
-    @XmlAttribute(name = "field")
     @JsonProperty("field")
     public String getField() {
         return field;
