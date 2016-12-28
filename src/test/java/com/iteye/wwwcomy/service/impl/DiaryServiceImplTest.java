@@ -18,49 +18,49 @@ import com.iteye.wwwcomy.model.User;
 @ContextConfiguration({ "classpath:applicationContext.xml" })
 public class DiaryServiceImplTest {
 
-	@Resource
-	DiaryServiceImpl diaryService;
+    @Resource
+    DiaryServiceImpl diaryService;
 
-	@Test
-	public void canGetAllDiary() {
-		List<Diary> diaries = diaryService.getAllDiary();
-		Assert.assertTrue(diaries.size() > 0);
-	}
+    @Test
+    public void canGetAllDiary() {
+        List<Diary> diaries = diaryService.getAllDiary();
+        Assert.assertTrue(diaries.size() > 0);
+    }
 
-	@Test
-	public void canFindById() {
-		Diary diary = diaryService.getDiaryById("1");
-		System.out.println(diary.getContent());
-		Assert.assertNotNull(diary);
-	}
+    @Test
+    public void canFindById() {
+        Diary diary = diaryService.getDiaryById(2);
+        System.out.println(diary.getContent());
+        Assert.assertNotNull(diary);
+    }
 
-	@Test
-	public void canSaveDiary() {
-		Diary diary = new Diary();
-		diary.setContent("test_content");
-		diary.setDate(new Date());
-		diary.setLastUpdateDate(new Date());
-		diary.setTitle("test_title");
-		diary.setUserId("1");
-		diaryService.createDiary(diary);
-	}
+    @Test
+    public void canSaveDiary() {
+        Diary diary = new Diary();
+        diary.setContent("test_content");
+        diary.setDate(new Date());
+        diary.setLastUpdateDate(new Date());
+        diary.setTitle("test_title");
+        diary.setUserId(1);
+        diaryService.createDiary(diary);
+    }
 
-	@Test
-	public void canUpdateDiary() {
-		Diary diary = new Diary();
-		diary.setContent("updated content");
-		diary.setTitle("更新title");
-		diary.setUserId("1");
-		User user = new User();
-		user.setUserid("1");
-		diaryService.updateDiary("39", diary, user);
-	}
+    @Test
+    public void canUpdateDiary() {
+        Diary diary = new Diary();
+        diary.setContent("updated content");
+        diary.setTitle("更新title");
+        diary.setUserId(1);
+        User user = new User();
+        user.setUserid(1);
+        diaryService.updateDiary(39, diary, user);
+    }
 
-	public DiaryServiceImpl getDiaryService() {
-		return diaryService;
-	}
+    public DiaryServiceImpl getDiaryService() {
+        return diaryService;
+    }
 
-	public void setDiaryService(DiaryServiceImpl diaryService) {
-		this.diaryService = diaryService;
-	}
+    public void setDiaryService(DiaryServiceImpl diaryService) {
+        this.diaryService = diaryService;
+    }
 }

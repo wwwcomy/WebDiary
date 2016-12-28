@@ -17,7 +17,7 @@ public interface BaseDao<T> {
      * 
      * @param id
      */
-    void delete(String id);
+    void delete(long id);
 
     /**
      * 更新实体
@@ -39,7 +39,7 @@ public interface BaseDao<T> {
      * @param id
      * @return
      */
-    T findById(@Param("id") String id);
+    T findById(@Param("id") long id);
 
     /**
      * 按id查询

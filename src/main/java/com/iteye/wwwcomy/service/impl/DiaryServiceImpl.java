@@ -34,7 +34,7 @@ public class DiaryServiceImpl {
 	}
 
 	@Transactional
-	public Diary updateDiary(String id, Diary diary, User user) {
+	public Diary updateDiary(long id, Diary diary, User user) {
 		Diary existingDiary = diaryDao.findById(id);
 		if (existingDiary == null) {
 			throw new NotFoundException("The diary is not found!");
@@ -45,7 +45,7 @@ public class DiaryServiceImpl {
 	}
 
 	@Transactional
-	public Diary getDiaryById(String id) {
+	public Diary getDiaryById(long id) {
 		return diaryDao.findById(id);
 	}
 

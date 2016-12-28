@@ -7,7 +7,7 @@ import java.util.Date;
  * @author xingnan.liu
  */
 public class User {
-    private String userid; // 用户ID
+    private long userid; // 用户ID
 
     private Date createdDate;
     private String deleted;// 是否已经删除
@@ -19,11 +19,11 @@ public class User {
     private String phone; // 电话
     private int status; // 状态（是否在线，是否通过验证为正式用户）
 
-    public String getUserid() {
+    public long getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(long userid) {
         this.userid = userid;
     }
 

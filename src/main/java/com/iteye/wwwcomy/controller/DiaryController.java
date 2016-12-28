@@ -47,14 +47,14 @@ public class DiaryController {
 	public Diary createDiary(@RequestBody Diary inputDiary, String content, HttpSession session, ModelAndView view) {
 		User user = (User) session.getAttribute("loginUser");
 		// TODO user handling
-		inputDiary.setUserId("1");
+		inputDiary.setUserId(1);
 		diaryService.createDiary(inputDiary);
 		return inputDiary;
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Diary getDiary(@PathVariable String id, HttpSession session, ModelAndView view) {
+	public Diary getDiary(@PathVariable long id, HttpSession session, ModelAndView view) {
 		User user = (User) session.getAttribute("loginUser");
 		Diary diary = diaryService.getDiaryById(id);
 		return diary;
@@ -62,7 +62,7 @@ public class DiaryController {
 
 	@ResponseBody
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public Diary updateDiary(@PathVariable String id, @RequestBody Diary diary, HttpSession session,
+	public Diary updateDiary(@PathVariable long id, @RequestBody Diary diary, HttpSession session,
 			ModelAndView view) {
 		User user = (User) session.getAttribute("loginUser");
 		Diary result = diaryService.updateDiary(id, diary, user);
@@ -99,7 +99,7 @@ public class DiaryController {
 		User user = (User) session.getAttribute("loginUser");
 		// TODO Change getAllDiary to getAllDiaryByUser
 		List<Diary> diaries = diaryService.getAllDiary();
-		Map<String, String> dateIdMap = new TreeMap<String, String>();
+		Map<String, Long> dateIdMap = new TreeMap<String, Long>();
 		for (Diary diary : diaries) {
 			String sDate = DateUtil.format(diary.getDate(), "yyyy年-MM月-dd日");
 			dateIdMap.put(sDate, diary.getId());
