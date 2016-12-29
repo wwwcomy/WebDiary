@@ -42,6 +42,9 @@ gulp.task('build-html', function() {
 gulp.task('build-img', function() {
   gulp.src(paths.img).pipe(gulp.dest('./dist/img'));
 });
+gulp.task('build-css', function() {
+  gulp.src(paths.css).pipe(gulp.dest('./dist/css'));
+});
 
 gulp.task('build-js', function() {
 	gulp.src(paths.js).pipe(concat('main.js')).pipe(gulp.dest('./dist/js'));
@@ -71,7 +74,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.html, ['build-html-watch']);
 });
 
-gulp.task('build', ['build-dep-js', 'build-dep-css', 'build-html', 'build-js', 'build-img'], function() {});
+gulp.task('build', ['build-dep-js', 'build-dep-css', 'build-html', 'build-css', 'build-js', 'build-img'], function() {});
 
 gulp.task('dev', [], function() {
 	runSequence('clean', [ 'build', 'browserSync', 'watch' ]);
