@@ -10,17 +10,18 @@
     <meta name="author" content="">
     <title>Web Diary</title>
     <link href="css/dependent.css" rel="stylesheet">
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
     <script src="js/dependent.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
-<body>
-    <div id="loadingbar-frame"></div>
+<body ng-app="main">
     <div class="container-fluid">
         <div class="row">
             <div id="main" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <!-- <h1 class="page-header">${loginUser.username}</h1>
-				<h1 class="page-header">${loginUser.password}</h1>  -->
+                <a ui-sref="hello" ui-sref-active="active">Hello</a>
+                <a ui-sref="about" ui-sref-active="active">About</a>
+                <ui-view></ui-view>
                 <h1>Navbar example</h1>
                 <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
                 </p>
