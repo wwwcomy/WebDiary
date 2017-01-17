@@ -59,7 +59,7 @@ gulp.task('build-js-watch', ['build-js'], function(done) {
     done();
 });
 
-gulp.task('build-html-watch', ['build-html'], function() {
+gulp.task('build-html-watch', ['build-html'], function(done) {
     browserSync.reload();
     done();
 });
