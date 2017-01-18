@@ -11,10 +11,12 @@
     <title>Web Diary</title>
     <link href="css/dependent.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
-    <script src="js/dependent.js"></script>
-    <script src="js/main.js"></script>
-
-    <style>.active { color: red; font-weight: bold; }</style>
+    <style>
+    .active {
+        color: red;
+        font-weight: bold;
+    }
+    </style>
 </head>
 
 <body ng-app="main">
@@ -28,11 +30,13 @@
                 <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
                 </p>
                 <p align="center">
-                    <a id="addNew" class="btn btn-lg btn-primary ws-load" role="button" href="new_part.jsp">Write a new one</a>
+                    <a id="addNew" class="btn btn-lg btn-primary" role="button" ui-sref="editor" ui-sref-active="active">Write a new one</a>
                 </p>
             </div>
         </div>
     </div>
 </body>
+<script src="js/dependent.js"></script>
+<script src="js/main.js"></script>
 
 </html>

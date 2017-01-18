@@ -5,17 +5,19 @@ var browserSync = require('browser-sync').create();
 var runSequence = require('run-sequence');
 
 var paths = {
-    js: ['src/js/main.js'],
+    js: ['src/js/*.js'],
     css: ['src/css/*'],
     img: ['src/img/*'],
-    html: ['src/html/*'],
+    html: ['src/html/**/*.html'],
     lib: {
         js: ['node_modules/jquery/dist/jquery.js',
             'node_modules/bootstrap/dist/js/bootstrap.js',
             'node_modules/angular/angular.js',
-            'node_modules/angular-ui-router/release/angular-ui-router.js'
+            'node_modules/angular-ui-router/release/angular-ui-router.js',
+            'node_modules/trix/dist/trix.js',
+            'node_modules/angular-trix/dist/angular-trix.js'
         ],
-        css: ['node_modules/bootstrap/dist/css/bootstrap.css'],
+        css: ['node_modules/bootstrap/dist/css/bootstrap.css', 'node_modules/trix/dist/trix.css'],
         img: []
     }
 };
