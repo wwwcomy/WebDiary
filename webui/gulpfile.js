@@ -10,8 +10,7 @@ var paths = {
     img: ['src/img/*'],
     html: ['src/html/**/*.html'],
     lib: {
-        js: ['node_modules/bootstrap/dist/js/bootstrap.js',
-            'node_modules/angular/angular.js',
+        js: ['node_modules/angular/angular.js',
             'node_modules/angular-ui-router/release/angular-ui-router.js',
             'node_modules/trix/dist/trix.js',
             'node_modules/angular-trix/dist/angular-trix.js'
