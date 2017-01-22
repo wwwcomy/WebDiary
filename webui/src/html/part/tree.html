@@ -2,16 +2,6 @@
 <br />
 <div class="row">
     <div class="col-sm-6">
-        <div class="row">
-            <a ui-sref='main.test1'>test1</a>
-        </div>
-        <div class="row">
-            <a ui-sref='main.test2'>test2</a>
-        </div>
-        <div class="row">
-            <a ui-sref='main.editorState'>editorState</a>
-        </div>
-        <label for="treeview"></label>
-        <div id="treeview" />
+        <abn-tree tree-data="diaryDates" on-select="getDiaryDetail(branch)"></abn-tree>
     </div>
 </div>

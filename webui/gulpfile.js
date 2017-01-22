@@ -13,9 +13,10 @@ var paths = {
         js: ['node_modules/angular/angular.js',
             'node_modules/angular-ui-router/release/angular-ui-router.js',
             'node_modules/trix/dist/trix.js',
-            'node_modules/angular-trix/dist/angular-trix.js'
+            'node_modules/angular-trix/dist/angular-trix.js',
+            'node_modules/angular-bootstrap-nav-tree/dist/abn_tree_directive.js'
         ],
-        css: ['node_modules/bootstrap/dist/css/bootstrap.css', 'node_modules/trix/dist/trix.css'],
+        css: ['node_modules/bootstrap/dist/css/bootstrap.css', 'node_modules/trix/dist/trix.css', 'node_modules/angular-bootstrap-nav-tree/dist/abn_tree.css'],
         img: []
     }
 };
