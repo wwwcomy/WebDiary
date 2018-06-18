@@ -7,8 +7,6 @@ import java.util.Map;
 
 import org.apache.commons.lang.ArrayUtils;
 
-import com.google.common.primitives.Chars;
-
 public class PasswordBuilder {
 	private int size = 16;
 	private List<Character> options = new ArrayList<>();
@@ -32,7 +30,12 @@ public class PasswordBuilder {
 	}
 
 	public PasswordBuilder addCharsOption(String chars, int mustCount) {
-		return addOption(Chars.asList(chars.toCharArray()), mustCount);
+		List<Character> charList = new ArrayList<>();
+		char[] charArr = chars.toCharArray();
+		for (char c : charArr) {
+			charList.add(c);
+		}
+		return addOption(charList, mustCount);
 	}
 
 	public PasswordBuilder addOption(List<Character> option, int mustCount) {
