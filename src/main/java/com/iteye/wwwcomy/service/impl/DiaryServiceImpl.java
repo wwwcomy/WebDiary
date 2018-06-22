@@ -22,9 +22,8 @@ public class DiaryServiceImpl {
 	public Diary createDiary(Date date, Date lastUpdateDate, String content, User user) {
 		Diary diary = new Diary();
 		diary.setContent(content);
-		diary.setUser(user);
+		diary.setUserId(user.getId());
 		diary.setDate(date);
-		diary.setLastUpdateDate(lastUpdateDate);
 		return diaryRepository.save(diary);
 	}
 

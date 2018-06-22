@@ -19,6 +19,11 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<jaxb.version>2.2.12</jaxb.version>
+		<commons-fileupload.version>1.3.2</commons-fileupload.version>
+		<commons-io.version>2.5</commons-io.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -39,10 +44,17 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Used for data migration <dependency> <groupId>commons-fileupload</groupId> 
-			<artifactId>commons-fileupload</artifactId> <version>${commons-fileupload.version}</version> 
-			</dependency> <dependency> <groupId>commons-io</groupId> <artifactId>commons-io</artifactId> 
-			<version>${commons-io.version}</version> </dependency> -->
+		<!-- Used for data migration -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>

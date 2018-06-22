@@ -25,8 +25,6 @@ public class DiaryTest {
 		Diary d = new Diary();
 		d.setContent("Content");
 		d.setDate(new Date());
-		d.setLastUpdateDate(new Date());
-		d.setUser(new User());
 		diaryRepository.save(d);
 	}
 
@@ -35,9 +33,6 @@ public class DiaryTest {
 		Diary d = new Diary();
 		d.setContent("Content");
 		d.setDate(new Date());
-		d.setLastUpdateDate(new Date());
-		d.setUser(new User());
-		d.setId(123);
 		d.setTitle("title");
 		d.setWeather("weather");
 		JsonGenerator jsonGenerator = null;

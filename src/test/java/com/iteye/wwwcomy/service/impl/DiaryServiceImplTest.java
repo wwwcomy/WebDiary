@@ -39,7 +39,6 @@ public class DiaryServiceImplTest {
 		Diary diary = new Diary();
 		diary.setContent("test_content");
 		diary.setDate(new Date());
-		diary.setLastUpdateDate(new Date());
 		diary.setTitle("test_title");
 		diary.setUserId(1);
 		diaryService.createDiary(diary);

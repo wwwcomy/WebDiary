@@ -62,8 +62,7 @@ public class DiaryController {
 
 	@ResponseBody
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public Diary updateDiary(@PathVariable long id, @RequestBody Diary diary, HttpSession session,
-			ModelAndView view) {
+	public Diary updateDiary(@PathVariable long id, @RequestBody Diary diary, HttpSession session, ModelAndView view) {
 		User user = (User) session.getAttribute("loginUser");
 		Diary result = diaryService.updateDiary(id, diary, user);
 		return result;
@@ -84,7 +83,6 @@ public class DiaryController {
 
 	/**
 	 * Gets all the diary's date list. Return a map like : diary date<--> ID
-	 * 
 	 * 
 	 * @param session
 	 * @param view
