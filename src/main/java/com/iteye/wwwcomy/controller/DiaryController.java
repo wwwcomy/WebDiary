@@ -12,12 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,13 +26,13 @@ import com.iteye.wwwcomy.service.impl.DiaryServiceImpl;
 import com.iteye.wwwcomy.utils.DateUtil;
 
 /**
+ * TODO Use Spring Security to achieve access control. Avoid 水平越权,垂直越权. Session
+ * may not be needed, user information can be get from SecurityContextHolder.
+ * 
  * @author wwwcomy
  *
- *         TODO Use Spring Security to achieve access control. Avoid 水平越权,垂直越权.
- *         Session may not be needed, user information can be get from
- *         SecurityContextHolder.
  */
-@Controller
+@RestController
 @SessionAttributes("loginUser")
 @RequestMapping(value = "/diary", produces = "application/json")
 public class DiaryController {
@@ -42,25 +41,20 @@ public class DiaryController {
 	@Resource
 	private DiaryServiceImpl diaryService;
 
-	@ResponseBody
 	@RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
 	public Diary createDiary(@RequestBody Diary inputDiary, String content, HttpSession session, ModelAndView view) {
 		User user = (User) session.getAttribute("loginUser");
-		// TODO user handling
 		inputDiary.setUserId(1);
 		diaryService.createDiary(inputDiary);
 		return inputDiary;
 	}
 
-	@ResponseBody
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Diary getDiary(@PathVariable long id, HttpSession session, ModelAndView view) {
-		User user = (User) session.getAttribute("loginUser");
+	public Diary getDiary(@PathVariable long id) {
 		Diary diary = diaryService.getDiaryById(id);
 		return diary;
 	}
 
-	@ResponseBody
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public Diary updateDiary(@PathVariable long id, @RequestBody Diary diary, HttpSession session, ModelAndView view) {
 		User user = (User) session.getAttribute("loginUser");
@@ -89,7 +83,6 @@ public class DiaryController {
 	 * @return
 	 * @throws IOException
 	 */
-	@ResponseBody
 	@RequestMapping(value = "/date/{param}", method = RequestMethod.GET)
 	public Object getDiaryDateList(@PathVariable String param, HttpSession session, ModelAndView view,
 			HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -105,11 +98,4 @@ public class DiaryController {
 		return dateIdMap;
 	}
 
-	public DiaryServiceImpl getDiaryService() {
-		return diaryService;
-	}
-
-	public void setDiaryService(DiaryServiceImpl diaryService) {
-		this.diaryService = diaryService;
-	}
 }
