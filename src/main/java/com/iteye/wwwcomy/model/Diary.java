@@ -5,15 +5,12 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import org.springframework.util.StringUtils;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.iteye.wwwcomy.model.exception.NotFoundException;
 
 @JsonPropertyOrder({ "id", "date", "lastUpdateDate", "weather", "title", "content" })
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -77,10 +74,6 @@ public class Diary extends BasePersistedObject {
 	}
 
 	public Diary update(Diary diary) {
-		if (StringUtils.isEmpty(diary.getUserId()) || !(diary.getUserId() == this.getUserId())) {
-			throw new NotFoundException(
-					"The user was not found in the input diary, or the input diary's user is not the same as the existing one!");
-		}
 		if (null != diary.getContent()) {
 			setContent(diary.getContent());
 		}

@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.iteye.wwwcomy.dao.DiaryRepository;
 import com.iteye.wwwcomy.model.Diary;
 import com.iteye.wwwcomy.model.User;
+import com.iteye.wwwcomy.model.exception.EntityNotFoundException;
 import com.iteye.wwwcomy.model.exception.MethodNotImplementException;
-import com.iteye.wwwcomy.model.exception.NotFoundException;
 
 @Service
 public class DiaryServiceImpl {
@@ -36,7 +36,7 @@ public class DiaryServiceImpl {
 	public Diary updateDiary(long id, Diary diary, User user) {
 		Diary existingDiary = diaryRepository.findOne(id);
 		if (existingDiary == null) {
-			throw new NotFoundException("The diary is not found!");
+			throw new EntityNotFoundException("The diary is not found!");
 		}
 		existingDiary.update(diary);
 		return diaryRepository.save(diary);
