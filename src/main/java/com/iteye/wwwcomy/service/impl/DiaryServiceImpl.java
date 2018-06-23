@@ -18,7 +18,6 @@ public class DiaryServiceImpl {
 	@Autowired
 	private DiaryRepository diaryRepository;
 
-	@Transactional
 	public Diary createDiary(Date date, Date lastUpdateDate, String content, User user) {
 		Diary diary = new Diary();
 		diary.setContent(content);
@@ -27,7 +26,6 @@ public class DiaryServiceImpl {
 		return diaryRepository.save(diary);
 	}
 
-	@Transactional
 	public Diary createDiary(Diary diary) {
 		return diaryRepository.save(diary);
 	}
@@ -42,7 +40,6 @@ public class DiaryServiceImpl {
 		return diaryRepository.save(diary);
 	}
 
-	@Transactional
 	public Diary getDiaryById(long id) {
 		return diaryRepository.findOne(id);
 	}
