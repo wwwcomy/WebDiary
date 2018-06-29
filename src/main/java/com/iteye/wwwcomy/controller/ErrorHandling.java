@@ -29,22 +29,6 @@ public class ErrorHandling {
 		return message;
 	}
 
-	@ExceptionHandler(EntityNotFoundException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ValidationErrorMessage handleNotFoundException(NullPointerException ex, HttpServletResponse response) {
-		logger.error(ex.getMessage(), ex);
-		ValidationErrorMessage message = new ValidationErrorMessage(HttpStatus.BAD_REQUEST.toString(), ex.getMessage());
-		response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-		return message;
-	}
-
-	@ExceptionHandler(Exception.class)
-	@ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
-	public ValidationErrorMessage handle(Exception ex) {
-		logger.error(ex.getMessage(), ex);
-		return new ValidationErrorMessage("exception", "An error occurred:" + ex.getMessage());
-	}
-
 	/**
 	 * Catches any {@link EntityAlreadyExistsException} and returns a response with
 	 * bad request status.
@@ -72,7 +56,7 @@ public class ErrorHandling {
 	}
 
 	/**
-	 * Catches any {@link EntityNotFoundException} and returns a response with 401
+	 * Catches any {@link InvalidParameterException} and returns a response with 400
 	 * status.
 	 *
 	 */
