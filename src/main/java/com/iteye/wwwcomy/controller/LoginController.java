@@ -1,20 +1,17 @@
 package com.iteye.wwwcomy.controller;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.iteye.wwwcomy.model.User;
 import com.iteye.wwwcomy.model.dto.AuthenticationResponse;
 import com.iteye.wwwcomy.service.impl.UserServiceImpl;
 
 @RestController
-public class DispatchController {
-	@Resource
+public class LoginController {
+	@Autowired
 	private UserServiceImpl userService;
 
 	/**

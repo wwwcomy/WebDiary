@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iteye.wwwcomy.model.Diary;
@@ -33,15 +32,14 @@ import com.iteye.wwwcomy.utils.DateUtil;
  *
  */
 @RestController
-@SessionAttributes("loginUser")
-@RequestMapping(value = "/diary", produces = "application/json")
+@RequestMapping(value = "/diaries", produces = "application/json")
 public class DiaryController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DiaryController.class);
 	@Autowired
 	private DiaryServiceImpl diaryService;
 
-	@RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
+	@RequestMapping(value = "", method = RequestMethod.PUT, consumes = "application/json")
 	public Diary createDiary(@RequestBody Diary inputDiary, String content, HttpSession session, ModelAndView view) {
 		User user = (User) session.getAttribute("loginUser");
 		inputDiary.setUserId(1);
@@ -69,7 +67,7 @@ public class DiaryController {
 	 * @param view
 	 * @return
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Diary> getDiaryList(HttpSession session, ModelAndView view) {
 		User user = (User) session.getAttribute("loginUser");
 		return null;

@@ -1,4 +1,4 @@
-package com.iteye.wwwcomy.controller;
+package com.iteye.wwwcomy.controller.advice;
 
 import javax.servlet.http.HttpServletResponse;
 
