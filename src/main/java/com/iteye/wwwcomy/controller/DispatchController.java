@@ -2,18 +2,17 @@ package com.iteye.wwwcomy.controller;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.iteye.wwwcomy.model.User;
 import com.iteye.wwwcomy.model.dto.AuthenticationResponse;
 import com.iteye.wwwcomy.service.impl.UserServiceImpl;
 
-@Controller
-@SessionAttributes("loginUser")
+@RestController
 public class DispatchController {
 	@Resource
 	private UserServiceImpl userService;
@@ -25,8 +24,7 @@ public class DispatchController {
 	 * @param password
 	 * @return
 	 */
-	@RequestMapping(value = "login.do", method = RequestMethod.POST)
-	@ResponseBody
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public AuthenticationResponse login(String username, String password) {
 		User user = userService.loadUser(username, password);
 		if (user == null) {
